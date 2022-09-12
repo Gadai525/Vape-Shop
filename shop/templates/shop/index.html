@@ -1,0 +1,545 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block title %}{{ title }}{% endblock %}
+
+{% block content %}
+<div class="nav-menu">
+      <div class="container">
+      <div class="nav-menu__row">
+        <div class="nav-menu__block">
+          <ul class="nav-menu__list">
+
+            {% for item in all_category %}
+            <li>
+              <a class="nav-menu__item" href="#">{{ item.title }}</a>
+              <ul class="nav-menu__sublist">
+                {% for obj in item.subcategory_set.all %}
+                <li><a href="#">{{ obj.title }}</a></li>
+                {% endfor %}
+              </ul>
+            </li>
+            {% endfor %}
+
+          </ul>
+        </div>
+        <div class="nav-menu__img">
+          <img src="{% static 'img/space.PNG' %}" alt="">
+        </div>
+      </div>
+      </div>
+    </div>
+
+    <div class="notice">
+      <div class="container">
+        <div class="notice__row">
+          <div class="notice__item">
+            <div class="notice__image">
+              <img src="{% static 'img/Notice/discounts.PNG' %}" alt="">
+            </div>
+            <div class="notice__body">
+              <div class="notice__title">Скидка на доставку</div>
+              <div class="notice__text">
+                При заказе от 900 рублей вам предоставляется скидка на доставку. Чем больше заказ, тем больше скидка.
+              </div>
+            </div>
+          </div>
+          <div class="notice__item">
+            <div class="notice__image">
+              <img src="{% static 'img/Notice/discounts.PNG' %}" alt="">
+            </div>
+            <div class="notice__body">
+              <div class="notice__title">Скидка на доставку</div>
+              <div class="notice__text">
+                При заказе от 900 рублей вам предоставляется скидка на доставку. Чем больше заказ, тем больше скидка.
+              </div>
+            </div>
+          </div>
+          <div class="notice__item">
+            <div class="notice__image">
+              <img src="{% static 'img/Notice/discounts.PNG' %}" alt="">
+            </div>
+            <div class="notice__body">
+              <div class="notice__title">Скидка на доставку</div>
+              <div class="notice__text">
+                При заказе от 900 рублей вам предоставляется скидка на доставку. Чем больше заказ, тем больше скидка.
+              </div>
+            </div>
+          </div>
+          <div class="notice__item">
+            <div class="notice__image">
+              <img src="{% static 'img/Notice/discounts.PNG' %}" alt="">
+            </div>
+            <div class="notice__body">
+              <div class="notice__title">Скидка на доставку</div>
+              <div class="notice__text">
+                При заказе от 900 рублей вам предоставляется скидка на доставку. Чем больше заказ, тем больше скидка.
+              </div>
+            </div>
+          </div>
+          <div class="notice__item">
+            <div class="notice__image">
+              <img src="{% static 'img/Notice/discounts.PNG' %}" alt="">
+            </div>
+            <div class="notice__body">
+              <div class="notice__title">Скидка на доставку</div>
+              <div class="notice__text">
+                При заказе от 900 рублей вам предоставляется скидка на доставку. Чем больше заказ, тем больше скидка.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="main-catelog">
+      <div class="container">
+        <div class="main-catelog__grid__1">
+          {% for item in one_category %}
+          <div class="main-catelog__item">
+            <div class="main-catelog__title">{{ item.title }}</div>
+            <div class="main-catelog__row">
+              <ul class="main-catelog__list">
+                <li><a href="#">Вейпы</a></li>
+                <li><a href="#">Перезаряжаемые одноразки</a></li>
+                <li><a href="#">Elf Bar</a></li>
+                <li><a href="#">{{ obj.title }}</a></li>
+              </ul>
+              <ul class="main-catelog__list">
+                <li><a href="#">Стартовые наборы</a></li>
+                <li><a href="#">Вейпы</a></li>
+                <li><a href="#">Перезаряжаемые одноразки</a></li>
+                <li><a href="#">Elf Bar</a></li>
+              </ul>
+              <div class="main-catelog__image">
+                {% if item.image %}
+                  <img src="{{ item.image.url }}" alt="">
+                {% endif %}
+              </div>
+            </div>
+          </div>
+          {% endfor %}
+
+          {% for item in two_category %}
+          <div class="main-catelog__item">
+            <div class="main-catelog__title">{{ item.title }}</div>
+            <div class="main-catelog__row">
+              <ul class="main-catelog__list">
+                <li><a href="#">Фруктовые</a></li>
+                <li><a href="#">Десертные</a></li>
+                <li><a href="#">Табачные</a></li>
+                <li><a href="#">Освежающие</a></li>
+              </ul>
+              <ul class="main-catelog__list">
+                <li><a href="#">С солевым никотином</a></li>
+                <li><a href="#">Необычные жидкости</a></li>
+                <li><a href="#">Нпитки</a></li>
+                <li><a href="#">Кислые</a></li>
+              </ul>
+              <div class="main-catelog__image">
+                {% if item.image %}
+                  <img src="{{ item.image.url }}" alt="">
+                {% endif %}
+              </div>
+            </div>
+          </div>
+          {% endfor %}
+
+          {% for item in three_categroy %}
+          <div class="main-catelog__item">
+            <div class="main-catelog__title">{{ item.title }}</div>
+            <div class="main-catelog__row">
+              <ul class="main-catelog__list">
+                <li><a href="#">Механические моды</a></li>
+                <li><a href="#">Сквонк моды</a></li>
+                <li><a href="#">Бокс моды со встроенным АКБ</a></li>
+                <li><a href="#">Elf Bar</a></li>
+              </ul>
+              <ul class="main-catelog__list">
+                <li><a href="#">Механические моды</a></li>
+                <li><a href="#">Сквонк моды</a></li>
+                <li><a href="#">Бокс моды со встроенным АКБ</a></li>
+                <li><a href="#">Elf Bar</a></li>
+              </ul>
+              <div class="main-catelog__image">
+                {% if item.image %}
+                  <img src="{{ item.image.url }}" alt="">
+                {% endif %}
+              </div>
+            </div>
+          </div>
+          {% endfor %}
+
+          {% for item in four_category %}
+          <div class="main-catelog__item">
+            <div class="main-catelog__title">{{ item.title }}</div>
+            <div class="main-catelog__row">
+              <ul class="main-catelog__list">
+                <li><a href="#">Подборка от Аделя</a></li>
+                <li><a href="#">Подборка от Алины</a></li>
+                <li><a href="#">Подборка от Николая</a></li>
+              </ul>
+              <ul class="main-catelog__list">
+                <li><a href="#">Подборка от Артема</a></li>
+                <li><a href="#">Подборка от Раиля</a></li>
+                <li><a href="#">Летние жидкости</a></li>
+              </ul>
+              <div class="main-catelog__image">
+                <img src="{% static 'img/Catalog/liquid-set.jpg' %}" alt="">
+              </div>
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+        <div class="main-catelog__grid__2">
+
+          {% for item in other_category %}
+          <div class="main-catelog__item">
+            <div class="main-catelog__title">{{ item.title }}</div>
+            <div class="main-catelog__row">
+              <ul class="main-catelog__list">
+                {% for obj in item.subcategory_set.all %}
+                <li><a href="#">{{ obj.title }}</a></li>
+                {% endfor %}
+              </ul>
+              <div class="main-catelog__image">
+                {% if item.image %}
+                <img src="{{ item.image.url }}" alt="">
+                {% endif %}
+              </div>
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+
+      </div>
+    </div>
+
+    <div class="sale">
+      <div class="container">
+        <div class="sale__main-title"><a href="#">Распрадажа</a></div>
+        <div class="sale__grid">
+          <div class="sale__item">
+            <div class="sale__img">
+              <a href="#"><img src="{% static 'img/Catalog/9065a1f99be6fdf361a97bc289611370.jpg' %}" alt=""></a>
+              <div class="sale__img-body">
+                <a class="sale__menu-img" href="#"><img src="{% static 'img/menu/compare_1.PNG' %}" alt=""></a>
+                <a class="sale__menu-img" href="#"><img src="{% static 'img/menu/favorites_1.PNG' %}" alt=""></a>
+              </div>
+            </div>
+            <div class="sale__title"><a href="#">Жидкость Fruit Box Salt «Tropic Nectar»</a></div>
+            <div class="sale__body">
+              <div class="sale__block">
+                <p class="sale__discount">500р</p>
+                <p class="sale__price">450р</p>
+              </div>
+              <div class="sale__button"><a href="#">Купить</a></div>
+            </div>
+          </div>
+          <div class="sale__item">
+            <div class="sale__img">
+              <a href="#"><img src="img/Catalog/9065a1f99be6fdf361a97bc289611370.jpg" alt=""></a>
+              <div class="sale__img-body">
+                <a class="sale__menu-img" href="#"><img src="{% static 'img/menu/compare_1.PNG' %}" alt=""></a>
+                <a class="sale__menu-img" href="#"><img src="{% static 'img/menu/favorites_1.PNG' %}" alt=""></a>
+              </div>
+            </div>
+            <div class="sale__title"><a href="#">Жидкость Fruit Box Salt «Tropic Nectar»</a></div>
+            <div class="sale__body">
+              <div class="sale__block">
+                <p class="sale__discount">500р</p>
+                <p class="sale__price">450р</p>
+              </div>
+              <div class="sale__button"><a href="#">Купить</a></div>
+            </div>
+          </div>
+          <div class="sale__item">
+            <div class="sale__img">
+              <a href="#"><img src="img/Catalog/9065a1f99be6fdf361a97bc289611370.jpg" alt=""></a>
+              <div class="sale__img-body">
+                <a class="sale__menu-img" href="#"><img src="{% static 'img/menu/compare_1.PNG' %}" alt=""></a>
+                <a class="sale__menu-img" href="#"><img src="{% static 'img/menu/favorites_1.PNG' %}" alt=""></a>
+              </div>
+            </div>
+            <div class="sale__title"><a href="#">Жидкость Fruit Box Salt «Tropic Nectar»</a></div>
+            <div class="sale__body">
+              <div class="sale__block">
+                <p class="sale__discount">500р</p>
+                <p class="sale__price">450р</p>
+              </div>
+              <div class="sale__button"><a href="#">Купить</a></div>
+            </div>
+          </div>
+          <div class="sale__item">
+            <div class="sale__img">
+              <a href="#"><img src="img/Catalog/9065a1f99be6fdf361a97bc289611370.jpg" alt=""></a>
+              <div class="sale__img-body">
+                <a class="sale__menu-img" href="#"><img src="{% static 'img/menu/compare_1.PNG' %}" alt=""></a>
+                <a class="sale__menu-img" href="#"><img src="{% static 'img/menu/favorites_1.PNG' %}" alt=""></a>
+              </div>
+            </div>
+            <div class="sale__title"><a href="#">Жидкость Fruit Box Salt «Tropic Nectar»</a></div>
+            <div class="sale__body">
+              <div class="sale__block">
+                <p class="sale__discount">500р</p>
+                <p class="sale__price">450р</p>
+              </div>
+              <div class="sale__button"><a href="#">Купить</a></div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="sale">
+      <div class="container">
+        <div class="sale__main-title"><a href="#">Выбор покупателя</a></div>
+        <div class="sale__grid">
+          <div class="sale__item">
+            <div class="sale__img">
+              <a href="#"><img src="img/Catalog/9065a1f99be6fdf361a97bc289611370.jpg" alt=""></a>
+              <div class="sale__img-body">
+                <a class="sale__menu-img" href="#"><img src="{% static 'img/menu/compare_1.PNG' %}" alt=""></a>
+                <a class="sale__menu-img" href="#"><img src="{% static 'img/menu/favorites_1.PNG' %}" alt=""></a>
+              </div>
+            </div>
+            <div class="sale__title"><a href="#">Жидкость Fruit Box Salt «Tropic Nectar»</a></div>
+            <div class="sale__body">
+              <div class="sale__block">
+                <p class="sale__discount">500р</p>
+                <p class="sale__price">450р</p>
+              </div>
+              <div class="sale__button"><a href="#">Купить</a></div>
+            </div>
+          </div>
+          <div class="sale__item">
+            <div class="sale__img">
+              <a href="#"><img src="img/Catalog/9065a1f99be6fdf361a97bc289611370.jpg" alt=""></a>
+              <div class="sale__img-body">
+                <a class="sale__menu-img" href="#"><img src="{% static 'img/menu/compare_1.PNG' %}" alt=""></a>
+                <a class="sale__menu-img" href="#"><img src="{% static 'img/menu/favorites_1.PNG' %}" alt=""></a>
+              </div>
+            </div>
+            <div class="sale__title"><a href="#">Жидкость Fruit Box Salt «Tropic Nectar»</a></div>
+            <div class="sale__body">
+              <div class="sale__block">
+                <p class="sale__discount">500р</p>
+                <p class="sale__price">450р</p>
+              </div>
+              <div class="sale__button"><a href="#">Купить</a></div>
+            </div>
+          </div>
+          <div class="sale__item">
+            <div class="sale__img">
+              <a href="#"><img src="img/Catalog/9065a1f99be6fdf361a97bc289611370.jpg" alt=""></a>
+              <div class="sale__img-body">
+                <a class="sale__menu-img" href="#"><img src="{% static 'img/menu/compare_1.PNG' %}" alt=""></a>
+                <a class="sale__menu-img" href="#"><img src="{% static 'img/menu/favorites_1.PNG' %}" alt=""></a>
+              </div>
+            </div>
+            <div class="sale__title"><a href="#">Жидкость Fruit Box Salt «Tropic Nectar»</a></div>
+            <div class="sale__body">
+              <div class="sale__block">
+                <p class="sale__discount">500р</p>
+                <p class="sale__price">450р</p>
+              </div>
+              <div class="sale__button"><a href="#">Купить</a></div>
+            </div>
+          </div>
+          <div class="sale__item">
+            <div class="sale__img">
+              <a href="#"><img src="img/Catalog/9065a1f99be6fdf361a97bc289611370.jpg" alt=""></a>
+              <div class="sale__img-body">
+                <a class="sale__menu-img" href="#"><img src="{% static 'img/menu/compare_1.PNG' %}" alt=""></a>
+                <a class="sale__menu-img" href="#"><img src="{% static 'img/menu/favorites_1.PNG' %}" alt=""></a>
+              </div>
+            </div>
+            <div class="sale__title"><a href="#">Жидкость Fruit Box Salt «Tropic Nectar»</a></div>
+            <div class="sale__body">
+              <div class="sale__block">
+                <p class="sale__discount">500р</p>
+                <p class="sale__price">450р</p>
+              </div>
+              <div class="sale__button"><a href="#">Купить</a></div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="sale">
+      <div class="container">
+        <div class="sale__main-title"><a href="#">Новинки</a></div>
+        <div class="sale__grid">
+          <div class="sale__item">
+            <div class="sale__img">
+              <a href="#"><img src="img/Catalog/9065a1f99be6fdf361a97bc289611370.jpg" alt=""></a>
+              <div class="sale__img-body">
+                <a class="sale__menu-img" href="#"><img src="{% static 'img/menu/compare_1.PNG' %}" alt=""></a>
+                <a class="sale__menu-img" href="#"><img src="{% static 'img/menu/favorites_1.PNG' %}" alt=""></a>
+              </div>
+            </div>
+            <div class="sale__title"><a href="#">Жидкость Fruit Box Salt «Tropic Nectar»</a></div>
+            <div class="sale__body">
+              <div class="sale__block">
+                <p class="sale__discount">500р</p>
+                <p class="sale__price">450р</p>
+              </div>
+              <div class="sale__button"><a href="#">Купить</a></div>
+            </div>
+          </div>
+          <div class="sale__item">
+            <div class="sale__img">
+              <a href="#"><img src="img/Catalog/9065a1f99be6fdf361a97bc289611370.jpg" alt=""></a>
+              <div class="sale__img-body">
+                <a class="sale__menu-img" href="#"><img src="img/menu/compare_1.PNG" alt=""></a>
+                <a class="sale__menu-img" href="#"><img src="img/menu/favorites_1.PNG" alt=""></a>
+              </div>
+            </div>
+            <div class="sale__title"><a href="#">Жидкость Fruit Box Salt «Tropic Nectar»</a></div>
+            <div class="sale__body">
+              <div class="sale__block">
+                <p class="sale__discount">500р</p>
+                <p class="sale__price">450р</p>
+              </div>
+              <div class="sale__button"><a href="#">Купить</a></div>
+            </div>
+          </div>
+          <div class="sale__item">
+            <div class="sale__img">
+              <a href="#"><img src="img/Catalog/9065a1f99be6fdf361a97bc289611370.jpg" alt=""></a>
+              <div class="sale__img-body">
+                <a class="sale__menu-img" href="#"><img src="img/menu/compare_1.PNG" alt=""></a>
+                <a class="sale__menu-img" href="#"><img src="img/menu/favorites_1.PNG" alt=""></a>
+              </div>
+            </div>
+            <div class="sale__title"><a href="#">Жидкость Fruit Box Salt «Tropic Nectar»</a></div>
+            <div class="sale__body">
+              <div class="sale__block">
+                <p class="sale__discount">500р</p>
+                <p class="sale__price">450р</p>
+              </div>
+              <div class="sale__button"><a href="#">Купить</a></div>
+            </div>
+          </div>
+          <div class="sale__item">
+            <div class="sale__img">
+              <a href="#"><img src="img/Catalog/9065a1f99be6fdf361a97bc289611370.jpg" alt=""></a>
+              <div class="sale__img-body">
+                <a class="sale__menu-img" href="#"><img src="img/menu/compare_1.PNG" alt=""></a>
+                <a class="sale__menu-img" href="#"><img src="img/menu/favorites_1.PNG" alt=""></a>
+              </div>
+            </div>
+            <div class="sale__title"><a href="#">Жидкость Fruit Box Salt «Tropic Nectar»</a></div>
+            <div class="sale__body">
+              <div class="sale__block">
+                <p class="sale__discount">500р</p>
+                <p class="sale__price">450р</p>
+              </div>
+              <div class="sale__button"><a href="#">Купить</a></div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="article">
+      <div class="container">
+        <div class="article__main-title"><a href="#">Статьи</a></div>
+        <div class="article__row">
+          <div class="article__item">
+            <div class="article__img"><img src="img/articles/136e8eeb787c6aee06870859d8de62e1.jpg" alt=""></div>
+            <div class="article__time">
+              <img src="{% static 'img/menu/time.png' %}" alt="">
+              <p>12.08.2022</p>
+            </div>
+            <div class="article__title"><a href="#">Топ 5 одноразок с зарядкой</a></div>
+            <div class="article__text">
+              <p>
+                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Unde itaque sequi sed voluptatibus. Quibusdam nulla 	quam dolores molestiae sint saepe, quos reiciendis ut ab? Impedit mollitia sequi, illum saepe consequuntur!
+              </p>
+            </div>
+          </div>
+          <div class="article__item">
+            <div class="article__img"><img src="img/articles/0f6afb2b7dabd1c0a325fb6e9eaacf2f.jpg" alt=""></div>
+            <div class="article__time">
+              <img src="img/menu/time.png" alt="">
+              <p>12.08.2022</p>
+            </div>
+            <div class="article__title"><a href="#">ТОП 2022 жидкостей – лучшие солевые жижи для POD-ов</a></div>
+            <div class="article__text">
+              <p>
+                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Unde itaque sequi sed voluptatibus. Quibusdam nulla 	quam dolores molestiae sint saepe, quos reiciendis ut ab? Impedit mollitia sequi, illum saepe consequuntur!
+              </p>
+            </div>
+          </div>
+          <div class="article__item">
+            <div class="article__img"><img src="img/articles/f5aec113762a983b8612710dc54fb1d6.jpg" alt=""></div>
+            <div class="article__time">
+              <img src="img/menu/time.png" alt="">
+              <p>12.08.2022</p>
+            </div>
+            <div class="article__title"><a href="#">ТОП электронных сигарет – лучшие вейпы 2021 года</a></div>
+            <div class="article__text">
+              <p>
+                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Unde itaque sequi sed voluptatibus. Quibusdam nulla 	quam dolores molestiae sint saepe, quos reiciendis ut ab? Impedit mollitia sequi, illum saepe consequuntur!
+              </p>
+            </div>
+          </div>
+          <div class="article__item">
+            <div class="article__img"><img src="img/articles/136e8eeb787c6aee06870859d8de62e1.jpg" alt=""></div>
+            <div class="article__time">
+              <img src="img/menu/time.png" alt="">
+              <p>12.08.2022</p>
+            </div>
+            <div class="article__title"><a href="#">Крепость 20 мг MIX, Ultra и Hard Salt у жидкостей для вейпа</a></div>
+            <div class="article__text">
+              <p>
+                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Unde itaque sequi sed voluptatibus. Quibusdam nulla 	quam dolores molestiae sint saepe, quos reiciendis ut ab? Impedit mollitia sequi, illum saepe consequuntur!
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="brends">
+      <div class="container">
+        <div class="brends__grid">
+          <div class="brends__item">
+            <a href="#"><img src="img/brends/3a913f338ca18b924fb321c098ae7859.jpg" alt=""></a>
+          </div>
+          <div class="brends__item">
+            <a href="#"><img src="img/brends/35750dca8c85f01007a16f2cee0ddde0.jpg" alt=""></a>
+          </div>
+          <div class="brends__item">
+            <a href="#"><img src="img/brends/f77741a08781ec3001d3d0b3fdc82059.jpg" alt=""></a>
+          </div>
+          <div class="brends__item">
+            <a href="#"><img src="img/brends/96ce9a81d72855b4ec549c2a3d45554c.jpg" alt=""></a>
+          </div>
+          <div class="brends__item">
+            <a href="#"><img src="img/brends/287e36203b76d20395915169ddb039e9.jpg" alt=""></a>
+          </div>
+          <div class="brends__item">
+            <a href="#"><img src="img/brends/b8e162b7e7b504af8831681fd01b3e1c.jpg" alt=""></a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="about-company">
+      <div class="container">
+        <div class="about-company__text">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione minima quam deserunt praesentium, maxime, id recusandae nemo error, repellat rem aspernatur natus aliquid officiis similique eaque nihil fugit aut corporis.
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. A neque, ipsam dolore necessitatibus vero veritatis quis sit voluptatibus harum deserunt tempore quas sint qui possimus id delectus sed odio! Amet excepturi voluptatibus, magnam quisquam, blanditiis velit molestiae quos consequuntur fuga, temporibus sint. Exercitationem, dolores in incidunt fuga, rem at vel omnis itaque totam tempora est. Libero iste enim facilis alias architecto pariatur reprehenderit nisi! Deserunt ipsa obcaecati magnam labore. Est dolorem tenetur sunt placeat delectus quasi fuga deleniti repellendus ipsum, enim doloribus rerum dolore vitae incidunt quod impedit amet quis consectetur omnis illo eos. Voluptates assumenda doloremque veniam eaque sint velit voluptate dicta et numquam ut iusto rerum, perspiciatis officia sapiente dignissimos, architecto molestias dolores ullam commodi nihil cum? Aliquam vero ipsa numquam molestiae atque at consequatur sint quam sed eveniet velit, laborum reprehenderit sequi doloremque deleniti iusto inventore dolores natus, recusandae. Quisquam, fugit expedita totam cupiditate quam amet, necessitatibus ipsum. Quaerat possimus iure ea amet, quis, adipisci, eaque voluptas cum, quam laborum voluptate saepe nemo natus soluta excepturi perspiciatis ratione quod nesciunt. Non aspernatur, architecto nemo minus, assumenda iusto! Nisi, itaque veritatis animi accusamus dolorem libero. Animi, fuga reiciendis inventore asperiores ea modi facilis nemo impedit ipsa? Ipsa mollitia laboriosam dolores ad deserunt vitae. Ipsam temporibus culpa odit perferendis dolores, in autem nemo incidunt consequuntur sequi ratione illum, officiis, esse perspiciatis eos. Doloremque omnis placeat nihil voluptas ullam aperiam. Assumenda ab pariatur illo officia ipsa laudantium blanditiis facere minima tempora a enim voluptatibus sit, quibusdam rem numquam suscipit reiciendis. Quo eligendi corrupti modi, facere explicabo culpa mollitia dolores ipsa molestias, deleniti natus distinctio recusandae consequuntur, eos voluptate laudantium. Architecto sit obcaecati doloremque id vel saepe dolore consectetur nulla? Repudiandae eveniet distinctio deserunt suscipit voluptate. Porro eum, suscipit ab perspiciatis minima impedit quas numquam ut saepe, vel eos nostrum iure harum provident, nihil labore commodi repellendus delectus nemo laborum enim eligendi ipsam est. Odit eligendi ut accusamus amet iste beatae, consectetur, quo aspernatur minima rem neque est porro, ab culpa in ducimus. Inventore, sit, sed earum omnis recusandae odit. Corrupti labore consectetur neque ipsum, aliquam magnam quis perspiciatis laboriosam similique. Nemo cupiditate a omnis vel recusandae assumenda asperiores minus. Enim voluptates magni in labore reiciendis corrupti sunt suscipit, dolores dolorum. Sequi laborum esse adipisci eos, a. Reprehenderit, iste ea reiciendis quod totam impedit quam repellendus itaque eligendi sit ipsa pariatur corrupti fugiat fuga iusto quisquam temporibus voluptatibus obcaecati tempora provident eius repudiandae mollitia perspiciatis! Eius a eum temporibus optio reiciendis voluptatum praesentium vero ratione molestiae atque dolorum neque assumenda ipsam facere officiis quidem nam autem quaerat cum dignissimos quas laudantium unde nostrum tenetur, excepturi? Voluptatum sint veniam atque voluptas delectus nihil repudiandae dolorum odit, incidunt accusantium odio laboriosam quidem minima culpa magni sit itaque aliquam at qui voluptatibus mollitia iusto laborum, maxime. Numquam veritatis dicta nemo itaque asperiores quaerat, atque, consequuntur tempora temporibus ab cum, dolor perspiciatis unde, alias nam eius earum accusantium? Reiciendis odit consequuntur dolores beatae consectetur rem laboriosam maxime alias illum, ullam fugiat, eaque. Rerum, eveniet, totam?
+
+        </div>
+      </div>
+    </div>
+
+{% endblock %}
