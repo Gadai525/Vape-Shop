@@ -8,66 +8,24 @@
 <div class="catalog">
   <div class="container">
     <div class="catalog-category__row">
-      <a href="#">Вейп-шоп "Смокинг"</a>
+      <a href="{% url 'home_page' %}">Вейп-шоп "Смокинг"</a>
       <p>/</p>
       <p>Каталог товаров</p>
     </div>
     <div class="catalog__main-title">Каталог товаров</div>
     <div class="cataglog__grid">
+      {% for item in all_catalog %}
       <div class="catalog__item">
-        <div class="catalog__title"><a href="#">Электронные сигареты</a></div>
+        <div class="catalog__title"><a href="#">{{ item.title }}</a></div>
         <div class="catalog__img">
-          <a href="#"><img src="img/Catalog/ecigarette.jpg" alt=""></a>
+          {% if item.image %}
+            <a href="#"><img src="{{ item.image.url }}" alt=""></a>
+          {% endif %}
+
         </div>
       </div>
-      <div class="catalog__item">
-        <div class="catalog__title"><a href="#">Электронные сигареты</a></div>
-        <div class="catalog__img">
-          <a href="#"><img src="img/Catalog/ecigarette.jpg" alt=""></a>
-        </div>
-      </div>
-      <div class="catalog__item">
-        <div class="catalog__title"><a href="#">Электронные сигареты</a></div>
-        <div class="catalog__img">
-          <a href="#"><img src="img/Catalog/ecigarette.jpg" alt=""></a>
-        </div>
-      </div>
-      <div class="catalog__item">
-        <div class="catalog__title"><a href="#">Электронные сигареты</a></div>
-        <div class="catalog__img">
-          <a href="#"><img src="img/Catalog/ecigarette.jpg" alt=""></a>
-        </div>
-      </div>
-      <div class="catalog__item">
-        <div class="catalog__title"><a href="#">Электронные сигареты</a></div>
-        <div class="catalog__img">
-          <a href="#"><img src="img/Catalog/ecigarette.jpg" alt=""></a>
-        </div>
-      </div>
-      <div class="catalog__item">
-        <div class="catalog__title"><a href="#">Электронные сигареты</a></div>
-        <div class="catalog__img">
-          <a href="#"><img src="img/Catalog/ecigarette.jpg" alt=""></a>
-        </div>
-      </div>
-      <div class="catalog__item">
-        <div class="catalog__title"><a href="#">Электронные сигареты</a></div>
-        <div class="catalog__img">
-          <a href="#"><img src="img/Catalog/ecigarette.jpg" alt=""></a>
-        </div>
-      </div>
-      <div class="catalog__item">
-        <div class="catalog__title"><a href="#">Электронные сигареты</a></div>
-        <div class="catalog__img">
-          <a href="#"><img src="img/Catalog/ecigarette.jpg" alt=""></a>
-        </div>
-      </div>
-      <div class="catalog__item">
-        <div class="catalog__title"><a href="#">Электронные сигареты</a></div>
-        <div class="catalog__img">
-          <a href="#"><img src="img/Catalog/ecigarette.jpg" alt=""></a>
-        </div>
-      </div>
+      {% endfor %}
+
     </div>
   </div>
 </div>

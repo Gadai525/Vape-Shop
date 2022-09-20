@@ -14,7 +14,13 @@ class Product(models.Model):
     buyer_choice = models.BooleanField(blank=True, verbose_name='Выбор покупателя', default=False)
     novelties = models.BooleanField(blank=True, verbose_name='Новинки', default=False)
 
-    subcategory = models.ForeignKey('SubCategory', blank=True, on_delete=models.PROTECT, verbose_name='Категория')
+
+    old_price = models.CharField(max_length=150, blank=True, verbose_name='Старая цена')
+    new_price = models.CharField(max_length=150, blank=True, verbose_name='Новая цена')
+
+
+
+    subcategory = models.ForeignKey('SubCategory', blank=True, on_delete=models.PROTECT, verbose_name='Подкатегория')
 
 
     def __str__(self):
@@ -46,6 +52,7 @@ class News(models.Model):
     title = models.CharField(max_length=200, verbose_name='Наименование новости')
     created_at = models.DateTimeField(auto_now_add=True, verbose_name='Дата публикации')
     text = models.TextField(verbose_name='Текст новости')
+    image = models.ImageField(upload_to='media/images-news/%Y/%m/%d/', verbose_name='Изображение')
 
     slug = models.SlugField(max_length=50, verbose_name='Url', unique=True)
 
@@ -97,3 +104,58 @@ class Color(models.Model):
     class Meta:
         verbose_name_plural = 'Цвета продуктов'
         verbose_name = 'Цвет продукта'
+
+""" Никобустер """
+class Nicobooster(models.Model):
+    product = models.ForeignKey(Product, on_delete=models.CASCADE, verbose_name='Продукт')
+    title = models.CharField(max_length=150, verbose_name='Крепость')
+
+    def __str__(self):
+        return self.title
+
+    class Meta:
+        verbose_name_plural = 'Никобустеры'
+        verbose_name = 'Никобустер'
+
+#-----------------------------------------------------------------------------------------
+
+""" Крепость """
+class Fortress(models.Model):
+    product = models.ForeignKey(Product, on_delete=models.CASCADE, verbose_name='Продукт')
+    title = models.CharField(max_length=150, verbose_name='Крепость')
+
+    def __str__(self):
+        return self.title
+
+    class Meta:
+        verbose_name_plural = 'Крепости'
+        verbose_name = 'Крепость'
+
+#-----------------------------------------------------------------------------------------
+
+""" Вкус """
+class Tastes(models.Model):
+    product = models.ForeignKey(Product, on_delete=models.CASCADE, verbose_name='Продукт')
+    title = models.CharField(max_length=200, verbose_name='Название вкуса')
+    image = models.ImageField(upload_to='media/tastes-image/%Y/%m/%d/')
+
+    def __str__(self):
+        return self.title
+
+    class Meta:
+        verbose_name_plural='Вкусы'
+        verbose_name = 'Вкус'
+
+#-----------------------------------------------------------------------------------------
+
+""" Объем """
+class Volume(models.Model):
+    product = models.ForeignKey(Product, on_delete=models.CASCADE, verbose_name='Продукт')
+    title = models.CharField(max_length=150, verbose_name='Объем')
+
+    def __str__(self):
+        return self.title
+
+    class Meta:
+        verbose_name_plural='Объемы'
+        verbose_name = 'Объем'

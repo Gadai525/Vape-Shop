@@ -220,75 +220,29 @@
       <div class="container">
         <div class="sale__main-title"><a href="#">Распрадажа</a></div>
         <div class="sale__grid">
+          {% for item in sale_product %}
           <div class="sale__item">
             <div class="sale__img">
-              <a href="#"><img src="{% static 'img/Catalog/9065a1f99be6fdf361a97bc289611370.jpg' %}" alt=""></a>
+              {% for obj in item.author_article_set.all %}
+                {% if obj.image %}
+                <a href="#"><img src="{{ obj.image.url}}" alt=""></a>
+                {% endif %}
+              {% endfor %}
               <div class="sale__img-body">
                 <a class="sale__menu-img" href="#"><img src="{% static 'img/menu/compare_1.PNG' %}" alt=""></a>
                 <a class="sale__menu-img" href="#"><img src="{% static 'img/menu/favorites_1.PNG' %}" alt=""></a>
               </div>
             </div>
-            <div class="sale__title"><a href="#">Жидкость Fruit Box Salt «Tropic Nectar»</a></div>
+            <div class="sale__title"><a href="#">{{ item.title }}</a></div>
             <div class="sale__body">
               <div class="sale__block">
-                <p class="sale__discount">500р</p>
-                <p class="sale__price">450р</p>
+                <p class="sale__discount">{{ item.old_price }}р</p>
+                <p class="sale__price">{{ item.new_price }}р</p>
               </div>
               <div class="sale__button"><a href="#">Купить</a></div>
             </div>
           </div>
-          <div class="sale__item">
-            <div class="sale__img">
-              <a href="#"><img src="img/Catalog/9065a1f99be6fdf361a97bc289611370.jpg" alt=""></a>
-              <div class="sale__img-body">
-                <a class="sale__menu-img" href="#"><img src="{% static 'img/menu/compare_1.PNG' %}" alt=""></a>
-                <a class="sale__menu-img" href="#"><img src="{% static 'img/menu/favorites_1.PNG' %}" alt=""></a>
-              </div>
-            </div>
-            <div class="sale__title"><a href="#">Жидкость Fruit Box Salt «Tropic Nectar»</a></div>
-            <div class="sale__body">
-              <div class="sale__block">
-                <p class="sale__discount">500р</p>
-                <p class="sale__price">450р</p>
-              </div>
-              <div class="sale__button"><a href="#">Купить</a></div>
-            </div>
-          </div>
-          <div class="sale__item">
-            <div class="sale__img">
-              <a href="#"><img src="img/Catalog/9065a1f99be6fdf361a97bc289611370.jpg" alt=""></a>
-              <div class="sale__img-body">
-                <a class="sale__menu-img" href="#"><img src="{% static 'img/menu/compare_1.PNG' %}" alt=""></a>
-                <a class="sale__menu-img" href="#"><img src="{% static 'img/menu/favorites_1.PNG' %}" alt=""></a>
-              </div>
-            </div>
-            <div class="sale__title"><a href="#">Жидкость Fruit Box Salt «Tropic Nectar»</a></div>
-            <div class="sale__body">
-              <div class="sale__block">
-                <p class="sale__discount">500р</p>
-                <p class="sale__price">450р</p>
-              </div>
-              <div class="sale__button"><a href="#">Купить</a></div>
-            </div>
-          </div>
-          <div class="sale__item">
-            <div class="sale__img">
-              <a href="#"><img src="img/Catalog/9065a1f99be6fdf361a97bc289611370.jpg" alt=""></a>
-              <div class="sale__img-body">
-                <a class="sale__menu-img" href="#"><img src="{% static 'img/menu/compare_1.PNG' %}" alt=""></a>
-                <a class="sale__menu-img" href="#"><img src="{% static 'img/menu/favorites_1.PNG' %}" alt=""></a>
-              </div>
-            </div>
-            <div class="sale__title"><a href="#">Жидкость Fruit Box Salt «Tropic Nectar»</a></div>
-            <div class="sale__body">
-              <div class="sale__block">
-                <p class="sale__discount">500р</p>
-                <p class="sale__price">450р</p>
-              </div>
-              <div class="sale__button"><a href="#">Купить</a></div>
-            </div>
-          </div>
-
+          {% endfor %}
         </div>
       </div>
     </div>
@@ -297,6 +251,7 @@
       <div class="container">
         <div class="sale__main-title"><a href="#">Выбор покупателя</a></div>
         <div class="sale__grid">
+          {% for item in buyer_choice_product %}
           <div class="sale__item">
             <div class="sale__img">
               <a href="#"><img src="img/Catalog/9065a1f99be6fdf361a97bc289611370.jpg" alt=""></a>
@@ -305,67 +260,16 @@
                 <a class="sale__menu-img" href="#"><img src="{% static 'img/menu/favorites_1.PNG' %}" alt=""></a>
               </div>
             </div>
-            <div class="sale__title"><a href="#">Жидкость Fruit Box Salt «Tropic Nectar»</a></div>
+            <div class="sale__title"><a href="#">{{ item.title }}</a></div>
             <div class="sale__body">
               <div class="sale__block">
-                <p class="sale__discount">500р</p>
-                <p class="sale__price">450р</p>
+                <p class="sale__discount">{{ item.old_price }}р</p>
+                <p class="sale__price">{{ item.new_price }}р</p>
               </div>
               <div class="sale__button"><a href="#">Купить</a></div>
             </div>
           </div>
-          <div class="sale__item">
-            <div class="sale__img">
-              <a href="#"><img src="img/Catalog/9065a1f99be6fdf361a97bc289611370.jpg" alt=""></a>
-              <div class="sale__img-body">
-                <a class="sale__menu-img" href="#"><img src="{% static 'img/menu/compare_1.PNG' %}" alt=""></a>
-                <a class="sale__menu-img" href="#"><img src="{% static 'img/menu/favorites_1.PNG' %}" alt=""></a>
-              </div>
-            </div>
-            <div class="sale__title"><a href="#">Жидкость Fruit Box Salt «Tropic Nectar»</a></div>
-            <div class="sale__body">
-              <div class="sale__block">
-                <p class="sale__discount">500р</p>
-                <p class="sale__price">450р</p>
-              </div>
-              <div class="sale__button"><a href="#">Купить</a></div>
-            </div>
-          </div>
-          <div class="sale__item">
-            <div class="sale__img">
-              <a href="#"><img src="img/Catalog/9065a1f99be6fdf361a97bc289611370.jpg" alt=""></a>
-              <div class="sale__img-body">
-                <a class="sale__menu-img" href="#"><img src="{% static 'img/menu/compare_1.PNG' %}" alt=""></a>
-                <a class="sale__menu-img" href="#"><img src="{% static 'img/menu/favorites_1.PNG' %}" alt=""></a>
-              </div>
-            </div>
-            <div class="sale__title"><a href="#">Жидкость Fruit Box Salt «Tropic Nectar»</a></div>
-            <div class="sale__body">
-              <div class="sale__block">
-                <p class="sale__discount">500р</p>
-                <p class="sale__price">450р</p>
-              </div>
-              <div class="sale__button"><a href="#">Купить</a></div>
-            </div>
-          </div>
-          <div class="sale__item">
-            <div class="sale__img">
-              <a href="#"><img src="img/Catalog/9065a1f99be6fdf361a97bc289611370.jpg" alt=""></a>
-              <div class="sale__img-body">
-                <a class="sale__menu-img" href="#"><img src="{% static 'img/menu/compare_1.PNG' %}" alt=""></a>
-                <a class="sale__menu-img" href="#"><img src="{% static 'img/menu/favorites_1.PNG' %}" alt=""></a>
-              </div>
-            </div>
-            <div class="sale__title"><a href="#">Жидкость Fruit Box Salt «Tropic Nectar»</a></div>
-            <div class="sale__body">
-              <div class="sale__block">
-                <p class="sale__discount">500р</p>
-                <p class="sale__price">450р</p>
-              </div>
-              <div class="sale__button"><a href="#">Купить</a></div>
-            </div>
-          </div>
-
+          {% endfor %}
         </div>
       </div>
     </div>
@@ -374,6 +278,7 @@
       <div class="container">
         <div class="sale__main-title"><a href="#">Новинки</a></div>
         <div class="sale__grid">
+          {% for item in novelties_product %}
           <div class="sale__item">
             <div class="sale__img">
               <a href="#"><img src="img/Catalog/9065a1f99be6fdf361a97bc289611370.jpg" alt=""></a>
@@ -382,74 +287,23 @@
                 <a class="sale__menu-img" href="#"><img src="{% static 'img/menu/favorites_1.PNG' %}" alt=""></a>
               </div>
             </div>
-            <div class="sale__title"><a href="#">Жидкость Fruit Box Salt «Tropic Nectar»</a></div>
+            <div class="sale__title"><a href="#">{{ item.title }}</a></div>
             <div class="sale__body">
               <div class="sale__block">
-                <p class="sale__discount">500р</p>
-                <p class="sale__price">450р</p>
+                <p class="sale__discount">{{ item.old_price }}р</p>
+                <p class="sale__price">{{ item.new_price }}р</p>
               </div>
               <div class="sale__button"><a href="#">Купить</a></div>
             </div>
           </div>
-          <div class="sale__item">
-            <div class="sale__img">
-              <a href="#"><img src="img/Catalog/9065a1f99be6fdf361a97bc289611370.jpg" alt=""></a>
-              <div class="sale__img-body">
-                <a class="sale__menu-img" href="#"><img src="img/menu/compare_1.PNG" alt=""></a>
-                <a class="sale__menu-img" href="#"><img src="img/menu/favorites_1.PNG" alt=""></a>
-              </div>
-            </div>
-            <div class="sale__title"><a href="#">Жидкость Fruit Box Salt «Tropic Nectar»</a></div>
-            <div class="sale__body">
-              <div class="sale__block">
-                <p class="sale__discount">500р</p>
-                <p class="sale__price">450р</p>
-              </div>
-              <div class="sale__button"><a href="#">Купить</a></div>
-            </div>
-          </div>
-          <div class="sale__item">
-            <div class="sale__img">
-              <a href="#"><img src="img/Catalog/9065a1f99be6fdf361a97bc289611370.jpg" alt=""></a>
-              <div class="sale__img-body">
-                <a class="sale__menu-img" href="#"><img src="img/menu/compare_1.PNG" alt=""></a>
-                <a class="sale__menu-img" href="#"><img src="img/menu/favorites_1.PNG" alt=""></a>
-              </div>
-            </div>
-            <div class="sale__title"><a href="#">Жидкость Fruit Box Salt «Tropic Nectar»</a></div>
-            <div class="sale__body">
-              <div class="sale__block">
-                <p class="sale__discount">500р</p>
-                <p class="sale__price">450р</p>
-              </div>
-              <div class="sale__button"><a href="#">Купить</a></div>
-            </div>
-          </div>
-          <div class="sale__item">
-            <div class="sale__img">
-              <a href="#"><img src="img/Catalog/9065a1f99be6fdf361a97bc289611370.jpg" alt=""></a>
-              <div class="sale__img-body">
-                <a class="sale__menu-img" href="#"><img src="img/menu/compare_1.PNG" alt=""></a>
-                <a class="sale__menu-img" href="#"><img src="img/menu/favorites_1.PNG" alt=""></a>
-              </div>
-            </div>
-            <div class="sale__title"><a href="#">Жидкость Fruit Box Salt «Tropic Nectar»</a></div>
-            <div class="sale__body">
-              <div class="sale__block">
-                <p class="sale__discount">500р</p>
-                <p class="sale__price">450р</p>
-              </div>
-              <div class="sale__button"><a href="#">Купить</a></div>
-            </div>
-          </div>
-
+          {% endfor %}
         </div>
       </div>
     </div>
 
     <div class="article">
       <div class="container">
-        <div class="article__main-title"><a href="#">Статьи</a></div>
+        <div class="article__main-title"><a href="{% url 'all_news' %}">Статьи</a></div>
         <div class="article__row">
           <div class="article__item">
             <div class="article__img"><img src="img/articles/136e8eeb787c6aee06870859d8de62e1.jpg" alt=""></div>
