@@ -4,8 +4,12 @@ from django.shortcuts import render
 from shop.models import *
 
 
+#-----------------------------------------------------------------------------------------
+
 def index(requests):
     all_category = Category.objects.all()
+    all_news = News.objects.all()[0:4]
+    all_brends = Brends.objects.all()[0:6]
 
     one_category = Category.objects.all()[0:1]
     two_category = Category.objects.all()[1:2]
@@ -20,6 +24,8 @@ def index(requests):
 
     context = {
         'all_category': all_category,
+        'all_news': all_news,
+        'all_brends': all_brends,
         'one_category': one_category,
         'two_category': two_category,
         'three_categroy': three_categroy,
@@ -32,19 +38,32 @@ def index(requests):
     }
     return render(requests, template_name='shop/index.html', context=context)
 
+#-----------------------------------------------------------------------------------------
+
 def catalog(requests):
     all_catalog = Category.objects.all()
-
     context = {
         'all_catalog': all_catalog,
         'title': 'Каталог'
     }
     return render(requests, template_name='shop/all_catalog.html', context=context)
 
+#-----------------------------------------------------------------------------------------
+
 def all_news(requests):
     news = News.objects.all()
-
     context = {
-        'news': news
+        'news': news,
+        'title': 'Все новости'
     }
     return render(requests, template_name='shop/all_news.html', context=context)
+
+#-----------------------------------------------------------------------------------------
+
+def get_new(requests, slug):
+    new = News.objects.get(slug=slug)
+    context = {
+        'new': new,
+        'title': News.objects.get(slug=slug),
+    }
+    return render(requests, template_name='shop/get_new.html', context=context)

@@ -35,8 +35,7 @@
 									<li><a href="">Гарантии</a></li>
 									<li><a href="">Помощь</a></li>
 									<li><a href="">Контакты</a></li>
-									<li><a href="">Новости</a></li>
-									<li><a href="">Статьи</a></li>
+									<li><a href="{% url 'all_news' %}">Статьи</a></li>
 								</ul>
 							</li>
 						</ul>
@@ -89,85 +88,7 @@
 
       {% block content %}{% endblock %}
 
-			<div class="footer">
-				<div class="container">
-					<div class="footer__row">
-						<div class="footer__item">
-							<p class="footer__title">Каталог</p>
-							<ul class="footer__list">
-								{% for item in all_category %}
-									<li><a href="#">{{ item.title }}</a></li>
-								{% endfor %}
-
-							</ul>
-						</div>
-						<div class="footer__item">
-							<p class="footer__title">В помощь покупателю</p>
-							<ul class="footer__list">
-								<li><a href="#">Акции</a></li>
-								<li><a href="#">Доставка</a></li>
-								<li><a href="#">Оплата</a></li>
-								<li><a href="#">Как сделать заказ</a></li>
-								<li><a href="#">Возврат/Гарантии</a></li>
-								<li><a href="#">Помощь</a></li>
-								<li><a href="#">Статьи</a></li>
-								<li><a href="#">Комплектующие</a></li>
-								<li><a href="#">Расходные материалы</a></li>
-							</ul>
-						</div>
-						<div class="footer__item">
-							<p class="footer__title">Информация</p>
-							<ul class="footer__list">
-								<li><a href="#">О компании</a></li>
-								<li><a href="#">Политика конфиденциальности</a></li>
-								<li><a href="#">Возрастное ограничение</a></li>
-								<li><a href="#">Контакты</a></li>
-								<li><a href="#">Карта сайта</a></li>
-							</ul>
-						</div>
-						<div class="footer__item">
-							<p class="footer__title">Наши контакты</p>
-							<ul class="footer__list">
-								<li>8 (800) 555 35 33</li>
-								<li>Почта: admin@localhost</li>
-							</ul>
-						</div>
-						<div class="footer__item">
-							<p class="footer__title">Онлайн консультакия</p>
-							<ul class="footer__list">
-								<li>Пн. - Пт.: с 09:00 до 20:00</li>
-								<li>Почта: admin@localhost</li>
-								<a class="footer__link" href="#">Вконтакте</a>
-								<a class="footer__link" href="#">Telegram</a>
-							</ul>
-						</div>
-					</div>
-				</div>
-				<div class="payment">
-					<div class="container">
-						<div class="payment__row">
-							<div class="payment__item">
-								<div class="paymment__phone">
-									<p>8 (800) 555 35 35</p>
-									<p>Звонок по РФ бесплатный</p>
-								</div>
-							</div>
-							<div class="payment__item">
-								<div class="payment__limitation">
-									<div class="payment__18">18+</div>
-									<div class="payment__body">
-										<p>Мы не реализуем продукцию</p>
-									 	<p>лицам младше 18 лет</p>
-									</div>
-								</div>
-							</div>
-							<div class="payment__item">
-								<div class="payment__copy"><p>© 2022 smoking-shop.ru. Все права защищены.</p></div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
+			{% include 'inc/_footer.html' %}
 		</div>
 	</div>
 </body>

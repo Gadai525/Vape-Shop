@@ -1,5 +1,6 @@
 from django.db import models
 
+from django.urls import reverse
 
 #-----------------------------------------------------------------------------------------
 
@@ -14,14 +15,13 @@ class Product(models.Model):
     buyer_choice = models.BooleanField(blank=True, verbose_name='Выбор покупателя', default=False)
     novelties = models.BooleanField(blank=True, verbose_name='Новинки', default=False)
 
-
     old_price = models.CharField(max_length=150, blank=True, verbose_name='Старая цена')
     new_price = models.CharField(max_length=150, blank=True, verbose_name='Новая цена')
 
-
-
     subcategory = models.ForeignKey('SubCategory', blank=True, on_delete=models.PROTECT, verbose_name='Подкатегория')
 
+    #def get_absolute_url(self):
+    #    return reverse('get_new', kwargs={'slug': self.slug})
 
     def __str__(self):
         return self.title
@@ -46,6 +46,21 @@ class Category(models.Model):
         verbose_name = 'Категория'
 
 #-----------------------------------------------------------------------------------------
+""" Бренды """
+class Brends(models.Model):
+    title = models.CharField(max_length=150, verbose_name='Наименование бренда')
+    image = models.ImageField(upload_to='media/images-brends/%Y/%m/%d/', verbose_name='Изображения')
+
+    product = models.ForeignKey(Product, on_delete=models.CASCADE, verbose_name='Продукт')
+
+    def __str__(self):
+        return self.title
+
+    class Meta:
+        verbose_name_plural = 'Бренды'
+        verbose_name = 'Бренд'
+
+#-----------------------------------------------------------------------------------------
 
 """ Новости """
 class News(models.Model):
@@ -57,7 +72,7 @@ class News(models.Model):
     slug = models.SlugField(max_length=50, verbose_name='Url', unique=True)
 
     def get_absolute_url(self):
-        return reverse('news', kwargs={'slug': self.slug})
+        return reverse('get_new', kwargs={'slug': self.slug})
 
     def __str__(self):
         return self.title

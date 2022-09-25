@@ -305,58 +305,30 @@
       <div class="container">
         <div class="article__main-title"><a href="{% url 'all_news' %}">Статьи</a></div>
         <div class="article__row">
+
+          {% for item in all_news %}
           <div class="article__item">
-            <div class="article__img"><img src="img/articles/136e8eeb787c6aee06870859d8de62e1.jpg" alt=""></div>
+            <div class="article__img">
+              {% if item.image %}
+                <img src="{{ item.image.url }}" alt="">
+              {% endif %}
+            </div>
             <div class="article__time">
               <img src="{% static 'img/menu/time.png' %}" alt="">
-              <p>12.08.2022</p>
+              <p>{{ item.created_at }}</p>
             </div>
-            <div class="article__title"><a href="#">Топ 5 одноразок с зарядкой</a></div>
+            <div class="article__title"><a href="{{ item.get_absolute_url }}">{{ item.title }}</a></div>
             <div class="article__text">
               <p>
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Unde itaque sequi sed voluptatibus. Quibusdam nulla 	quam dolores molestiae sint saepe, quos reiciendis ut ab? Impedit mollitia sequi, illum saepe consequuntur!
+                {{ item.text|linebreaks|truncatewords:70 }}
               </p>
             </div>
           </div>
-          <div class="article__item">
-            <div class="article__img"><img src="img/articles/0f6afb2b7dabd1c0a325fb6e9eaacf2f.jpg" alt=""></div>
-            <div class="article__time">
-              <img src="img/menu/time.png" alt="">
-              <p>12.08.2022</p>
-            </div>
-            <div class="article__title"><a href="#">ТОП 2022 жидкостей – лучшие солевые жижи для POD-ов</a></div>
-            <div class="article__text">
-              <p>
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Unde itaque sequi sed voluptatibus. Quibusdam nulla 	quam dolores molestiae sint saepe, quos reiciendis ut ab? Impedit mollitia sequi, illum saepe consequuntur!
-              </p>
-            </div>
-          </div>
-          <div class="article__item">
-            <div class="article__img"><img src="img/articles/f5aec113762a983b8612710dc54fb1d6.jpg" alt=""></div>
-            <div class="article__time">
-              <img src="img/menu/time.png" alt="">
-              <p>12.08.2022</p>
-            </div>
-            <div class="article__title"><a href="#">ТОП электронных сигарет – лучшие вейпы 2021 года</a></div>
-            <div class="article__text">
-              <p>
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Unde itaque sequi sed voluptatibus. Quibusdam nulla 	quam dolores molestiae sint saepe, quos reiciendis ut ab? Impedit mollitia sequi, illum saepe consequuntur!
-              </p>
-            </div>
-          </div>
-          <div class="article__item">
-            <div class="article__img"><img src="img/articles/136e8eeb787c6aee06870859d8de62e1.jpg" alt=""></div>
-            <div class="article__time">
-              <img src="img/menu/time.png" alt="">
-              <p>12.08.2022</p>
-            </div>
-            <div class="article__title"><a href="#">Крепость 20 мг MIX, Ultra и Hard Salt у жидкостей для вейпа</a></div>
-            <div class="article__text">
-              <p>
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Unde itaque sequi sed voluptatibus. Quibusdam nulla 	quam dolores molestiae sint saepe, quos reiciendis ut ab? Impedit mollitia sequi, illum saepe consequuntur!
-              </p>
-            </div>
-          </div>
+          {% endfor %}
+
+
+
+
         </div>
       </div>
     </div>
@@ -364,24 +336,19 @@
     <div class="brends">
       <div class="container">
         <div class="brends__grid">
+          {% for item in all_brends %}
           <div class="brends__item">
-            <a href="#"><img src="img/brends/3a913f338ca18b924fb321c098ae7859.jpg" alt=""></a>
+            {% if item.image %}
+              <a href="#"><img src="{{ item.image.url }}" alt=""></a>
+            {% endif %}
+
           </div>
-          <div class="brends__item">
-            <a href="#"><img src="img/brends/35750dca8c85f01007a16f2cee0ddde0.jpg" alt=""></a>
-          </div>
-          <div class="brends__item">
-            <a href="#"><img src="img/brends/f77741a08781ec3001d3d0b3fdc82059.jpg" alt=""></a>
-          </div>
-          <div class="brends__item">
-            <a href="#"><img src="img/brends/96ce9a81d72855b4ec549c2a3d45554c.jpg" alt=""></a>
-          </div>
-          <div class="brends__item">
-            <a href="#"><img src="img/brends/287e36203b76d20395915169ddb039e9.jpg" alt=""></a>
-          </div>
-          <div class="brends__item">
-            <a href="#"><img src="img/brends/b8e162b7e7b504af8831681fd01b3e1c.jpg" alt=""></a>
-          </div>
+          {% endfor %}
+
+
+
+
+
         </div>
       </div>
     </div>

@@ -23,6 +23,16 @@ class CategoryAdmin(admin.ModelAdmin):
             return 'Фото не установлено'
     get_photo.short_description = 'Минимтюра'
 
+class BrendsAdmin(admin.ModelAdmin):
+    list_display = ('title', 'product', 'get_photo')
+
+    def get_photo(self, obj):
+        if obj.image:
+            return mark_safe(f'<img src="{ obj.image.url }" width="150" height="70">')
+        else:
+            return 'Фото не установлено'
+    get_photo.short_description = 'Минимтюра'
+
 class SubCategoryAdmin(admin.ModelAdmin):
     list_display = ('title', 'category')
 
@@ -68,6 +78,7 @@ class NewsAdmin(admin.ModelAdmin):
 
 admin.site.register(Product, ProductAdmin)
 admin.site.register(Category, CategoryAdmin)
+admin.site.register(Brends, BrendsAdmin)
 admin.site.register(SubCategory, SubCategoryAdmin)
 admin.site.register(Nicobooster, NicoboosterAdmin)
 admin.site.register(Fortress, FortressAdmin)
