@@ -19,9 +19,9 @@ class Product(models.Model):
     new_price = models.CharField(max_length=150, blank=True, verbose_name='Новая цена')
 
     subcategory = models.ForeignKey('SubCategory', blank=True, on_delete=models.PROTECT, verbose_name='Подкатегория')
-
+    slug = models.SlugField(max_length=50, verbose_name='Url', unique=True)
     #def get_absolute_url(self):
-    #    return reverse('get_new', kwargs={'slug': self.slug})
+    #    return reverse('get_product', kwargs={'slug': self.slug})
 
     def __str__(self):
         return self.title
@@ -36,7 +36,10 @@ class Product(models.Model):
 class Category(models.Model):
     title = models.CharField(db_index=True, max_length=100, verbose_name='Название')
     image = models.ImageField(upload_to='media/images-category/%Y/%m/%d/', verbose_name='Изображения')
+    slug = models.SlugField(max_length=50, verbose_name='Url', unique=True)
 
+    def get_absolute_url(self):
+        return reverse('get_product_category', kwargs={'slug': self.slug})
 
     def __str__(self):
         return self.title
@@ -88,7 +91,10 @@ class News(models.Model):
 class SubCategory(models.Model):
     category = models.ForeignKey(Category, on_delete=models.CASCADE, verbose_name='Подкатегория')
     title = models.CharField(max_length=150, verbose_name='Название')
+    slug = models.SlugField(max_length=50, verbose_name='Url', unique=True)
 
+    #def get_absolute_url(self):
+    #    return reverse('get_product_category', kwargs={'slug': self.slug})
 
     def __str__(self):
         return self.title

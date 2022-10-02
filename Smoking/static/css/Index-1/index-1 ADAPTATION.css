@@ -94,6 +94,12 @@
 
 
 }
+
+@media (max-width: 750px){
+
+
+
+}
 @media (max-width: 600px){
 	.about-company__text{
 		border: 1px solid rgb(223, 223, 223);

@@ -13,7 +13,7 @@
 
             {% for item in all_category %}
             <li>
-              <a class="nav-menu__item" href="#">{{ item.title }}</a>
+              <a class="nav-menu__item" href="{{ item.get_absolute_url }}">{{ item.title }}</a>
               <ul class="nav-menu__sublist">
                 {% for obj in item.subcategory_set.all %}
                 <li><a href="#">{{ obj.title }}</a></li>

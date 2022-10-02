@@ -10,11 +10,13 @@ from shop.models import *
 
 """ Продукт """
 class ProductAdmin(admin.ModelAdmin):
-    list_display = ('title', 'mini_description', 'description', 'product_characteristics', 'sale', 'buyer_choice', 'novelties', 'old_price', 'new_price', 'subcategory')
+    prepopulated_fields = {'slug': ('title',)}
+    list_display = ('title', 'mini_description', 'description', 'product_characteristics', 'sale', 'buyer_choice', 'novelties', 'old_price', 'new_price', 'subcategory', 'slug')
 
 
 class CategoryAdmin(admin.ModelAdmin):
-    list_display = ('title', 'get_photo')
+    prepopulated_fields = {'slug': ('title',)}
+    list_display = ('title', 'slug', 'get_photo')
 
     def get_photo(self, obj):
         if obj.image:
@@ -34,7 +36,8 @@ class BrendsAdmin(admin.ModelAdmin):
     get_photo.short_description = 'Минимтюра'
 
 class SubCategoryAdmin(admin.ModelAdmin):
-    list_display = ('title', 'category')
+    prepopulated_fields = {'slug': ('title',)}
+    list_display = ('title', 'slug', 'category')
 
 class NicoboosterAdmin(admin.ModelAdmin):
     list_display = ('title', 'product')

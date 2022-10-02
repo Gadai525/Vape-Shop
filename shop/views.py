@@ -67,3 +67,17 @@ def get_new(requests, slug):
         'title': News.objects.get(slug=slug),
     }
     return render(requests, template_name='shop/get_new.html', context=context)
+
+#-----------------------------------------------------------------------------------------
+
+def get_product_category(requests, slug):
+    category = Category.objects.get(slug=slug)
+
+    context = {
+        'title': Category.objects.get(slug=slug),
+        'category': category,
+    }
+    return render(requests, template_name='shop/get_product.html', context=context)
+
+def get_product_subcategory(requests, slug):
+    subcategory = SubCategory.objects.get(slug=slug)
