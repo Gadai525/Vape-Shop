@@ -16,7 +16,7 @@
               <a class="nav-menu__item" href="{{ item.get_absolute_url }}">{{ item.title }}</a>
               <ul class="nav-menu__sublist">
                 {% for obj in item.subcategory_set.all %}
-                <li><a href="#">{{ obj.title }}</a></li>
+                <li><a href="{{ obj.get_absolute_url }}">{{ obj.title }}</a></li>
                 {% endfor %}
               </ul>
             </li>
@@ -233,7 +233,7 @@
                 <a class="sale__menu-img" href="#"><img src="{% static 'img/menu/favorites_1.PNG' %}" alt=""></a>
               </div>
             </div>
-            <div class="sale__title"><a href="#">{{ item.title }}</a></div>
+            <div class="sale__title"><a href="#">{{ item.title }}312312</a></div>
             <div class="sale__body">
               <div class="sale__block">
                 <p class="sale__discount">{{ item.old_price }}р</p>

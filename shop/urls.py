@@ -7,5 +7,6 @@ urlpatterns = [
     path('catalog/', catalog, name='catalog'),
     path('news/', all_news, name='all_news'),
     path('news/<str:slug>/', get_new, name='get_new'),
-    path('asd/<str:slug>/', get_product_category, name='get_product_category'),
+    path('<slug:slug>/', get_category, name='get_category'),
+    path('<str:slug_category>/<str:slug_subcategory>/', get_subcategory, name='get_subcategory'),
 ]

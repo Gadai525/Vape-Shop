@@ -70,14 +70,25 @@ def get_new(requests, slug):
 
 #-----------------------------------------------------------------------------------------
 
-def get_product_category(requests, slug):
+def get_category(requests, slug):
     category = Category.objects.get(slug=slug)
 
     context = {
         'title': Category.objects.get(slug=slug),
         'category': category,
     }
-    return render(requests, template_name='shop/get_product.html', context=context)
+    return render(requests, template_name='shop/get_category.html', context=context)
 
-def get_product_subcategory(requests, slug):
-    subcategory = SubCategory.objects.get(slug=slug)
+#-----------------------------------------------------------------------------------------
+
+def get_subcategory(requests, *args, **kwargs):
+
+    context = {
+        'title': 'sdfsdf',
+    }
+    return render(requests, template_name='shop/get_subcategory.html', context=context)
+
+#-----------------------------------------------------------------------------------------
+
+def get_product(requests, *args, **kwargs):
+    pass

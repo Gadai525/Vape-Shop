@@ -39,7 +39,7 @@ class Category(models.Model):
     slug = models.SlugField(max_length=50, verbose_name='Url', unique=True)
 
     def get_absolute_url(self):
-        return reverse('get_product_category', kwargs={'slug': self.slug})
+        return reverse('get_category', kwargs={'slug': self.slug})
 
     def __str__(self):
         return self.title
@@ -93,8 +93,8 @@ class SubCategory(models.Model):
     title = models.CharField(max_length=150, verbose_name='Название')
     slug = models.SlugField(max_length=50, verbose_name='Url', unique=True)
 
-    #def get_absolute_url(self):
-    #    return reverse('get_product_category', kwargs={'slug': self.slug})
+    def get_absolute_url(self):
+        return reverse('get_subcategory', kwargs={'slug_subcategory': self.slug, 'slug_category': self.category.slug})
 
     def __str__(self):
         return self.title
