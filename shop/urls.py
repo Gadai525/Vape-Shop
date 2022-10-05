@@ -9,4 +9,5 @@ urlpatterns = [
     path('news/<str:slug>/', get_new, name='get_new'),
     path('<slug:slug>/', get_category, name='get_category'),
     path('<str:slug_category>/<str:slug_subcategory>/', get_subcategory, name='get_subcategory'),
+    path('<str:slug_category>/<str:slug_subcategory>/<str:slug_product>/', get_product, name='get_product'),
 ]

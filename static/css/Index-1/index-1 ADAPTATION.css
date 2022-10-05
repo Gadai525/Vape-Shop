@@ -11,6 +11,50 @@
 	}
 
 }
+@media (max-width: 1250px){
+	.get_product__category {
+		display: none;
+	}
+	
+
+
+	.get_product__spoller {
+		background: #fff;
+		margin-bottom: 20px;
+		padding: 20px;
+		display: block;
+		border: 2px solid rgb(223, 223, 223);
+	}
+	.right{
+		transform: rotate(-45deg);
+    	-webkit-transform: rotate(-45deg);
+	}
+	.get_product__arrow{
+		border: solid black;
+	    border-width: 0px 3px 3px 0;
+	    display: inline-block;
+	    padding: 6px;
+	    
+	}
+	.get_product__summrry {
+		display: flex;
+		justify-content: space-between;
+		list-style: none;
+		font-size: 17px;
+		font-weight: 600;
+	}
+	.get_product__list-spoller {
+
+	}
+	.get_product__list-spoller li {
+		margin-top: 15px;
+		
+	}
+	.get_product__list-spoller a {
+		font-size: 17px;
+		color: black;
+	}
+}
 @media (max-width: 1000px){
 	.main-catelog__grid__1 {
 		display: grid;

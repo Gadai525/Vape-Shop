@@ -20,8 +20,9 @@ class Product(models.Model):
 
     subcategory = models.ForeignKey('SubCategory', blank=True, on_delete=models.PROTECT, verbose_name='Подкатегория')
     slug = models.SlugField(max_length=50, verbose_name='Url', unique=True)
-    #def get_absolute_url(self):
-    #    return reverse('get_product', kwargs={'slug': self.slug})
+
+    def get_absolute_url(self):
+        return reverse('get_product', kwargs={'slug_product': self.slug, 'slug_category': self.subcategory.category.slug, 'slug_subcategory': self.subcategory.slug})
 
     def __str__(self):
         return self.title
