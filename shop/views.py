@@ -71,11 +71,16 @@ def get_new(requests, slug):
 #-----------------------------------------------------------------------------------------
 
 def get_category(requests, slug):
-    category = Category.objects.get(slug=slug)
+    product = Product.objects.filter(subcategory__category__slug=slug)
+    category = Category.objects.all()
+    image = Gallary.objects.filter(product__subcategory__category__slug=slug)[0]
+
 
     context = {
         'title': Category.objects.get(slug=slug),
+        'product': product,
         'category': category,
+        'image': image,
     }
     return render(requests, template_name='shop/get_category.html', context=context)
 
