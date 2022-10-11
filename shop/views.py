@@ -95,10 +95,10 @@ def get_subcategory(requests, *args, **kwargs):
 
 #-----------------------------------------------------------------------------------------
 
-def get_product(requests, *args, **kwargs):
-    all_product = Product.objects.all()
+def get_product(requests, slug_product, slug_category, slug_subcategory):
+    get = Product.objects.filter(slug=slug_product)
     context = {
         'title': 'asdasdas',
-        'all_product': all_product,
+        'get': get,
     }
     return render(requests, template_name='shop/get_product.html', context=context)

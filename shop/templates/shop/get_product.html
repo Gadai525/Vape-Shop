@@ -6,5 +6,70 @@
 {% block title %}{{ title }}{% endblock %}
 
 {% block content %}
+<div class="get_product">
+  <div class="container">
+
+    <div class="news_block__row">
+      <a href="#">Вейп-шоп "Смокинг"</a>
+      <p>/</p>
+      <p>Электронные сигареты</p>
+      <p>/</p>
+      <p>Набор Vaporesso GTX GO 40 Kit</p>
+    </div>
+    <div class="news_block__main-title">Электронные сигареты</div>
+
+    <div class="get_product__row">
+      <div class="get_product__body-1">
+        <div class="get_product__main-image">
+          <a href="#"><img src="img/Products/47bd47a0d6e3c31be336eef83cf56d66.JPG" alt=""></a>
+        </div>
+        <div class="get_product__sub-image">
+          <a href=""><img src="img/Products/47bd47a0d6e3c31be336eef83cf56d66.JPG" alt=""></a>
+          <a href=""><img src="img/Products/47bd47a0d6e3c31be336eef83cf56d66.JPG" alt=""></a>
+          <a href=""><img src="img/Products/47bd47a0d6e3c31be336eef83cf56d66.JPG" alt=""></a>
+          <a href=""><img src="img/Products/47bd47a0d6e3c31be336eef83cf56d66.JPG" alt=""></a>
+        </div>
+      </div>
+      <div class="get_product__body-2">
+        <div class="get_product__price">1691 руб</div>
+        <form action="#">
+          <div class="get_product__form">
+            <button>+</button>
+            <input type="text">
+            <button>-</button>
+          </div>
+
+          <button class="get_product__add">Добавить</button>
+        </form>
+        <div class="get_product__note">
+          <ul class="get_product__list">
+            <li><img src="{% static 'img/Buy/inits_in_stock.PNG' %}" alt=""><a href="#">В наличии</a></li>
+            <li><img src="{% static 'img/Buy/gift.PNG' %}" alt=""><a href="#">Гарантированные подарки к вашему заказу</a></li>
+            <li><img src="{% static 'img/Buy/delivery.PNG' %}" alt=""><a href="#">Доставка по стране курьерами СДЭК и Почты России</a></li>
+            <li><img src="{% static 'img/Buy/money.PNG' %}" alt=""><a href="#">Безопасная оплата (Наличными, банковской картой)</a></li>
+          </ul>
+        </div>
+        <div class="get_product__payment">
+          <img src="{% static 'img/Buy/cart-1.PNG' %}" alt="">
+          <img src="{% static 'img/Buy/cart-2.PNG' %}" alt="">
+          <img src="{% static 'img/Buy/cart-3.PNG' %}" alt="">
+          <img src="{% static 'img/Buy/cart-5.PNG' %}" alt="">
+        </div>
+      </div>
+    </div>
+    <div class="get_product__description">
+      <div class="get_product__row2">
+        <details class="get_product__details">
+          <summary>Описание</summary>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias ea nostrum sunt nulla, neque fuga repudiandae incidunt molestiae id porro corrupti, eveniet quaerat, quia iste ducimus libero repellat eaque earum.</p>
+        </details>
+        <details class="get_product__details">
+          <summary>Характеристики</summary>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae quam hic perferendis laboriosam consequuntur non repudiandae aspernatur, ducimus, numquam iusto inventore earum voluptas libero, perspiciatis nobis ad molestias aut minima.</p>
+        </details>
+      </div>
+    </div>
+  </div>
+</div>
 
 {% endblock %}

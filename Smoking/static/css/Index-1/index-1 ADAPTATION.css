@@ -130,13 +130,9 @@
 	.nav__search{
 		display: none;
 	}
-	.nav__nav{
-		
-	}
-	.get_product__grid{
-		display: grid;
-		grid-template-columns: 1fr 1fr;
-	}
+	
+
+	
 
 }
 @media (max-width: 800px){
@@ -144,6 +140,25 @@
 		grid-template-columns: 1fr;
 	}
 
+
+}
+@media (max-width: 820px){
+	.get_product__row {
+		display: block;
+		flex-direction: column;
+	}
+
+	.get_product__main-image {
+		max-width: 100%;
+		max-height: 100%;
+	}
+
+
+	.get_product__sub-image{
+		max-width: 100%;
+		max-height: 100%;
+		text-align: center;
+	}
 
 }
 
