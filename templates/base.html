@@ -76,10 +76,38 @@
 						</form>
 					</div>
 					<div class="nav__nav">
-						<a class="nav__input" href="#"><img src="{% static 'img/Nav-Menu/input.png' %}" alt=""><p>Войти</p></a>
-						<a class="nav__favorites" href="#"><img src="{% static 'img/Nav-Menu/favorites.png' %}" alt=""><p>Избранное</p></a>
-						<a class="nav__compare" href="#"><img src="{% static 'img/Nav-Menu/compare.png' %}" alt=""><p>Сравнение</p></a>
+						<a class="nav__input" href="#popup"><img src="{% static 'img/Nav-Menu/input.png' %}" alt=""><p>Войти</p></a>
 						<a class="nav__cart" href="#"><img src="{% static 'img/Nav-Menu/cart.png' %}" alt=""><p>Корзина</p></a>
+					</div>
+					<div class="registration">
+						<div class="content">
+							<div id="popup" class="registration__popup">
+								<div class="registration__body">
+									<div class="registration__popup-content">
+										<a href="#" class="registration__close">x</a>
+										<div class="registration__text">
+											<details class="registration__details">
+												<summary>Вход</summary>
+												<form action="#" class="registration__form">
+													<p><input placeholder="Введите @mail" type="text"></p>
+													<p><input placeholder="Пароль" type="text"></p>
+													<input type="submit">
+												</form>
+											</details>
+											<details class="registration__details">
+												<summary>Регистрация</summary>
+												<form action="#" class="registration__form">
+													<p><input placeholder="Введите @mail" type="text"></p>
+													<p><input placeholder="Пароль" type="text"></p>
+													<input type="submit">
+												</form>
+											</details>
+										</div>
+									</div>
+
+								</div>
+							</div>
+						</div>
 					</div>
 				</div>
 			</div>

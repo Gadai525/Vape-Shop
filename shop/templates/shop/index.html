@@ -31,6 +31,7 @@
       </div>
     </div>
 
+
     <div class="notice">
       <div class="container">
         <div class="notice__row">
@@ -186,7 +187,9 @@
                 <li><a href="#">Летние жидкости</a></li>
               </ul>
               <div class="main-catelog__image">
-                <img src="{% static 'img/Catalog/liquid-set.jpg' %}" alt="">
+                {% if item.image %}
+                <img src="{{ item.image.url }}" alt="">
+                {% endif %}
               </div>
             </div>
           </div>
@@ -223,11 +226,11 @@
           {% for item in sale_product %}
           <div class="sale__item">
             <div class="sale__img">
-              {% for obj in item.author_article_set.all %}
-                {% if obj.image %}
-                <a href="{{ item.get_absolute_url }}"><img src="{{ obj.image.url}}" alt=""></a>
-                {% endif %}
-              {% endfor %}
+
+              {% if item.main_image %}
+                <a href="{{ item.get_absolute_url }}"><img src="{{ item.main_image.url }}" alt=""></a>
+              {% endif %}
+
               <div class="sale__img-body">
                 <a class="sale__menu-img" href="#"><img src="{% static 'img/menu/compare_1.PNG' %}" alt=""></a>
                 <a class="sale__menu-img" href="#"><img src="{% static 'img/menu/favorites_1.PNG' %}" alt=""></a>
@@ -254,7 +257,10 @@
           {% for item in buyer_choice_product %}
           <div class="sale__item">
             <div class="sale__img">
-              <a href="{{ item.get_absolute_url }}"><img src="img/Catalog/9065a1f99be6fdf361a97bc289611370.jpg" alt=""></a>
+              {% if item.main_image %}
+                <a href="{{ item.get_absolute_url }}"><img src="{{ item.main_image.url }}" alt=""></a>
+              {% endif %}
+
               <div class="sale__img-body">
                 <a class="sale__menu-img" href="#"><img src="{% static 'img/menu/compare_1.PNG' %}" alt=""></a>
                 <a class="sale__menu-img" href="#"><img src="{% static 'img/menu/favorites_1.PNG' %}" alt=""></a>
@@ -281,7 +287,10 @@
           {% for item in novelties_product %}
           <div class="sale__item">
             <div class="sale__img">
-              <a href="{{ item.get_absolute_url }}"><img src="img/Catalog/9065a1f99be6fdf361a97bc289611370.jpg" alt=""></a>
+              {% if item.main_image %}
+                <a href="{{ item.get_absolute_url }}"><img src="{{ item.main_image.url }}" alt=""></a>
+              {% endif %}
+
               <div class="sale__img-body">
                 <a class="sale__menu-img" href="#"><img src="{% static 'img/menu/compare_1.PNG' %}" alt=""></a>
                 <a class="sale__menu-img" href="#"><img src="{% static 'img/menu/favorites_1.PNG' %}" alt=""></a>
@@ -338,6 +347,7 @@
         <div class="brends__grid">
           {% for item in all_brends %}
           <div class="brends__item">
+
             {% if item.image %}
               <a href="#"><img src="{{ item.image.url }}" alt=""></a>
             {% endif %}
@@ -355,11 +365,21 @@
 
     <div class="about-company">
       <div class="container">
+        {% autoescape off %}
         <div class="about-company__text">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione minima quam deserunt praesentium, maxime, id recusandae nemo error, repellat rem aspernatur natus aliquid officiis similique eaque nihil fugit aut corporis.
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. A neque, ipsam dolore necessitatibus vero veritatis quis sit voluptatibus harum deserunt tempore quas sint qui possimus id delectus sed odio! Amet excepturi voluptatibus, magnam quisquam, blanditiis velit molestiae quos consequuntur fuga, temporibus sint. Exercitationem, dolores in incidunt fuga, rem at vel omnis itaque totam tempora est. Libero iste enim facilis alias architecto pariatur reprehenderit nisi! Deserunt ipsa obcaecati magnam labore. Est dolorem tenetur sunt placeat delectus quasi fuga deleniti repellendus ipsum, enim doloribus rerum dolore vitae incidunt quod impedit amet quis consectetur omnis illo eos. Voluptates assumenda doloremque veniam eaque sint velit voluptate dicta et numquam ut iusto rerum, perspiciatis officia sapiente dignissimos, architecto molestias dolores ullam commodi nihil cum? Aliquam vero ipsa numquam molestiae atque at consequatur sint quam sed eveniet velit, laborum reprehenderit sequi doloremque deleniti iusto inventore dolores natus, recusandae. Quisquam, fugit expedita totam cupiditate quam amet, necessitatibus ipsum. Quaerat possimus iure ea amet, quis, adipisci, eaque voluptas cum, quam laborum voluptate saepe nemo natus soluta excepturi perspiciatis ratione quod nesciunt. Non aspernatur, architecto nemo minus, assumenda iusto! Nisi, itaque veritatis animi accusamus dolorem libero. Animi, fuga reiciendis inventore asperiores ea modi facilis nemo impedit ipsa? Ipsa mollitia laboriosam dolores ad deserunt vitae. Ipsam temporibus culpa odit perferendis dolores, in autem nemo incidunt consequuntur sequi ratione illum, officiis, esse perspiciatis eos. Doloremque omnis placeat nihil voluptas ullam aperiam. Assumenda ab pariatur illo officia ipsa laudantium blanditiis facere minima tempora a enim voluptatibus sit, quibusdam rem numquam suscipit reiciendis. Quo eligendi corrupti modi, facere explicabo culpa mollitia dolores ipsa molestias, deleniti natus distinctio recusandae consequuntur, eos voluptate laudantium. Architecto sit obcaecati doloremque id vel saepe dolore consectetur nulla? Repudiandae eveniet distinctio deserunt suscipit voluptate. Porro eum, suscipit ab perspiciatis minima impedit quas numquam ut saepe, vel eos nostrum iure harum provident, nihil labore commodi repellendus delectus nemo laborum enim eligendi ipsam est. Odit eligendi ut accusamus amet iste beatae, consectetur, quo aspernatur minima rem neque est porro, ab culpa in ducimus. Inventore, sit, sed earum omnis recusandae odit. Corrupti labore consectetur neque ipsum, aliquam magnam quis perspiciatis laboriosam similique. Nemo cupiditate a omnis vel recusandae assumenda asperiores minus. Enim voluptates magni in labore reiciendis corrupti sunt suscipit, dolores dolorum. Sequi laborum esse adipisci eos, a. Reprehenderit, iste ea reiciendis quod totam impedit quam repellendus itaque eligendi sit ipsa pariatur corrupti fugiat fuga iusto quisquam temporibus voluptatibus obcaecati tempora provident eius repudiandae mollitia perspiciatis! Eius a eum temporibus optio reiciendis voluptatum praesentium vero ratione molestiae atque dolorum neque assumenda ipsam facere officiis quidem nam autem quaerat cum dignissimos quas laudantium unde nostrum tenetur, excepturi? Voluptatum sint veniam atque voluptas delectus nihil repudiandae dolorum odit, incidunt accusantium odio laboriosam quidem minima culpa magni sit itaque aliquam at qui voluptatibus mollitia iusto laborum, maxime. Numquam veritatis dicta nemo itaque asperiores quaerat, atque, consequuntur tempora temporibus ab cum, dolor perspiciatis unde, alias nam eius earum accusantium? Reiciendis odit consequuntur dolores beatae consectetur rem laboriosam maxime alias illum, ullam fugiat, eaque. Rerum, eveniet, totam?
+
+          {% for item in mainpage %}
+            {{ item.text }}
+          {% endfor %}
+
+
+
+
+
 
         </div>
+        {% endautoescape %}
+
       </div>
     </div>
 

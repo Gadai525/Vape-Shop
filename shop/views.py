@@ -22,6 +22,8 @@ def index(requests):
     buyer_choice_product = Product.objects.filter(buyer_choice=True)[0:4]
     novelties_product = Product.objects.filter(novelties=True)[0:4]
 
+    mainpage = MainPage.objects.all()
+
     context = {
         'all_category': all_category,
         'all_news': all_news,
@@ -35,6 +37,7 @@ def index(requests):
         'buyer_choice_product': buyer_choice_product,
         'novelties_product': novelties_product,
         'title': 'Смокинг-вейпшоп',
+        'mainpage': mainpage,
     }
     return render(requests, template_name='shop/index.html', context=context)
 
@@ -73,14 +76,14 @@ def get_new(requests, slug):
 def get_category(requests, slug):
     product = Product.objects.filter(subcategory__category__slug=slug)
     category = Category.objects.all()
-    image = Gallary.objects.filter(product__subcategory__category__slug=slug)[0]
+    #image = Gallary.objects.filter(product__subcategory__category__slug=slug)[0]
 
 
     context = {
         'title': Category.objects.get(slug=slug),
         'product': product,
         'category': category,
-        'image': image,
+        #'image': image,
     }
     return render(requests, template_name='shop/get_category.html', context=context)
 
@@ -102,3 +105,8 @@ def get_product(requests, slug_product, slug_category, slug_subcategory):
         'get': get,
     }
     return render(requests, template_name='shop/get_product.html', context=context)
+
+
+def get_brend(requests, *args, **kwargs):
+    #brend_product = Brends.objects.filter(product__)
+    pass

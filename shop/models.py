@@ -10,7 +10,7 @@ class Product(models.Model):
     mini_description = models.TextField(blank=True, verbose_name='Небольшое описание')
     description = models.TextField(blank=True, verbose_name='Описание товара')
     product_characteristics = models.TextField(blank=True, verbose_name='Характеристики товара')
-
+    main_image = models.ImageField(upload_to='media/images-product/%Y/%m/%d/', verbose_name='Изображения')
     sale = models.BooleanField(blank=True, verbose_name='Распрадажа', default=False)
     buyer_choice = models.BooleanField(blank=True, verbose_name='Выбор покупателя', default=False)
     novelties = models.BooleanField(blank=True, verbose_name='Новинки', default=False)
@@ -54,8 +54,11 @@ class Category(models.Model):
 class Brends(models.Model):
     title = models.CharField(max_length=150, verbose_name='Наименование бренда')
     image = models.ImageField(upload_to='media/images-brends/%Y/%m/%d/', verbose_name='Изображения')
-
+    slug = models.SlugField(max_length=50, verbose_name='Url', unique=True)
     product = models.ForeignKey(Product, on_delete=models.CASCADE, verbose_name='Продукт')
+
+    def get_absolute_url(self):
+        return reverse('get_brend', kwargs={'slug_brend': self.slug})
 
     def __str__(self):
         return self.title
@@ -181,3 +184,105 @@ class Volume(models.Model):
     class Meta:
         verbose_name_plural='Объемы'
         verbose_name = 'Объем'
+
+#-----------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+class Bonuses_gifts(models.Model):
+    text = models.TextField(verbose_name='Бонусы и подарки')
+
+    def __str__(self):
+        return self.text
+
+    class Meta:
+        verbose_name_plural='Бонус и подарок'
+        verbose_name = 'Бонусы и подарки'
+
+class Delivery(models.Model):
+    text = models.TextField(verbose_name='Доставка')
+
+    def __str__(self):
+        return self.text
+
+    class Meta:
+        verbose_name_plural='Доставка'
+        verbose_name = 'Доставки'
+
+class Payment(models.Model):
+    text = models.TextField(verbose_name='Оплата')
+
+    def __str__(self):
+        return self.text
+
+    class Meta:
+        verbose_name_plural='Оплата'
+        verbose_name = 'Оплата'
+
+class How_to_order(models.Model):
+    text = models.TextField(verbose_name='Как заказать')
+
+    def __str__(self):
+        return self.text
+
+    class Meta:
+        verbose_name_plural='Как заказать'
+        verbose_name = 'Как заказать'
+
+class Guarantees(models.Model):
+    text = models.TextField(verbose_name='Гарантии')
+
+    def __str__(self):
+        return self.text
+
+    class Meta:
+        verbose_name_plural='Гарантия'
+        verbose_name = 'Гарантии'
+
+#class Contact(models.Model):
+#    text = models.TextField(verbose_name='Контакты')
+
+#    time = models.CharField(max_length=250, verbose_name='Режим работы')
+#    phone = models.CharField(max_length=100, verbose_name='Номер')
+
+#    def __str__(self):
+#        return self.text
+
+#    class Meta:
+#        verbose_name_plural='Контакт'
+#        verbose_name = 'Контакты'
+
+class MainPage(models.Model):
+    text = models.TextField(verbose_name='Описание на главное странице')
+
+    def __str__(self):
+        return self.text
+
+    class Meta:
+        verbose_name_plural='Описание на главное странице'
+        verbose_name = 'Описание на главное странице'
+
+#-----------------------------------------------------------------------------------------
+#-----------------------------------------------------------------------------------------
+#-----------------------------------------------------------------------------------------
+#-----------------------------------------------------------------------------------------
+#-----------------------------------------------------------------------------------------
+#-----------------------------------------------------------------------------------------
+#-----------------------------------------------------------------------------------------
+#-----------------------------------------------------------------------------------------
+#-----------------------------------------------------------------------------------------
+#-----------------------------------------------------------------------------------------
+#-----------------------------------------------------------------------------------------
