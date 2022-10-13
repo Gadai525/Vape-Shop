@@ -39,7 +39,7 @@ class CategoryAdmin(admin.ModelAdmin):
 
 class BrendsAdmin(admin.ModelAdmin):
     prepopulated_fields = {'slug': ('title',)}
-    list_display = ('title', 'product', 'slug', 'get_photo')
+    list_display = ('title', 'slug', 'get_photo')
 
     def get_photo(self, obj):
         if obj.image:

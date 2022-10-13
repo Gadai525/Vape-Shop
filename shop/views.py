@@ -92,7 +92,7 @@ def get_category(requests, slug):
 def get_subcategory(requests, *args, **kwargs):
 
     context = {
-        'title': 'sdfsdf',
+        'title': '1sdfsdf',
     }
     return render(requests, template_name='shop/get_subcategory.html', context=context)
 
@@ -108,5 +108,11 @@ def get_product(requests, slug_product, slug_category, slug_subcategory):
 
 
 def get_brend(requests, *args, **kwargs):
-    #brend_product = Brends.objects.filter(product__)
-    pass
+    #category_brend = Brends.objects.all()
+    #brend = Product.objects.filter(brend__slug=slug_brend)
+    context = {
+    #    'category_brend': category_brend,
+    #    'brend': brend,
+        'title': 'titleee',
+    }
+    return render(request, template_name='shop/get_brend.html', context=context)

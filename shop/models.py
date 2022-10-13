@@ -19,6 +19,7 @@ class Product(models.Model):
     new_price = models.CharField(max_length=150, blank=True, verbose_name='Новая цена')
 
     subcategory = models.ForeignKey('SubCategory', blank=True, on_delete=models.PROTECT, verbose_name='Подкатегория')
+    brend = models.ForeignKey('Brends', on_delete=models.CASCADE, verbose_name='Бренд')
     slug = models.SlugField(max_length=50, verbose_name='Url', unique=True)
 
     def get_absolute_url(self):
@@ -55,7 +56,7 @@ class Brends(models.Model):
     title = models.CharField(max_length=150, verbose_name='Наименование бренда')
     image = models.ImageField(upload_to='media/images-brends/%Y/%m/%d/', verbose_name='Изображения')
     slug = models.SlugField(max_length=50, verbose_name='Url', unique=True)
-    product = models.ForeignKey(Product, on_delete=models.CASCADE, verbose_name='Продукт')
+
 
     def get_absolute_url(self):
         return reverse('get_brend', kwargs={'slug_brend': self.slug})
