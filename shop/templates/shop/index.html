@@ -345,11 +345,11 @@
     <div class="brends">
       <div class="container">
         <div class="brends__grid">
-          {% for item in all_brends %}
+          {% for brend in all_brends %}
           <div class="brends__item">
 
-            {% if item.image %}
-              <a href="{{ item.get_absolute_url }}"><img src="{{ item.image.url }}" alt=""></a>
+            {% if brend.image %}
+              <a href="{{ brend.get_absolute_url }}"><img src="{{ brend.image.url }}" alt=""></a>
             {% endif %}
 
           </div>

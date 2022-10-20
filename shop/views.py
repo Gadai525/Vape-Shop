@@ -73,14 +73,14 @@ def get_new(requests, slug):
 
 #-----------------------------------------------------------------------------------------
 
-def get_category(requests, slug):
-    product = Product.objects.filter(subcategory__category__slug=slug)
+def get_category(requests, slug_category):
+    product = Product.objects.filter(subcategory__category__slug=slug_category)
     category = Category.objects.all()
     #image = Gallary.objects.filter(product__subcategory__category__slug=slug)[0]
 
 
     context = {
-        'title': Category.objects.get(slug=slug),
+        'title': 'str(Category.objects.get(slug=slug_category))',
         'product': product,
         'category': category,
         #'image': image,
@@ -89,7 +89,7 @@ def get_category(requests, slug):
 
 #-----------------------------------------------------------------------------------------
 
-def get_subcategory(requests, *args, **kwargs):
+def get_subcategory(requests, slug_category, slug_subcategory):
 
     context = {
         'title': '1sdfsdf',
@@ -107,12 +107,22 @@ def get_product(requests, slug_product, slug_category, slug_subcategory):
     return render(requests, template_name='shop/get_product.html', context=context)
 
 
-def get_brend(requests, *args, **kwargs):
-    #category_brend = Brends.objects.all()
+def get_brend(requests, slug_brend):
+    category_brend = Brends.objects.all()
     #brend = Product.objects.filter(brend__slug=slug_brend)
     context = {
-    #    'category_brend': category_brend,
+        'category_brend': category_brend,
     #    'brend': brend,
         'title': 'titleee',
     }
-    return render(request, template_name='shop/get_brend.html', context=context)
+    return render(requests, template_name='shop/get_brend.html', context=context)
+
+
+def bonuses_gifts(requests):
+    bonuses_gifts = Bonuses_gifts.objects.first()
+
+    context = {
+        'bonuses_gifts': bonuses_gifts,
+        'title': 'Бонусы и подарки',
+    }
+    return render(requests, template_name='shop/bonuses_gifts.html', context=context)

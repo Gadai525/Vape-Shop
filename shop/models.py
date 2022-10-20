@@ -41,7 +41,7 @@ class Category(models.Model):
     slug = models.SlugField(max_length=50, verbose_name='Url', unique=True)
 
     def get_absolute_url(self):
-        return reverse('get_category', kwargs={'slug': self.slug})
+        return reverse('get_category', kwargs={'slug_category': self.slug})
 
     def __str__(self):
         return self.title
@@ -205,6 +205,8 @@ class Volume(models.Model):
 
 class Bonuses_gifts(models.Model):
     text = models.TextField(verbose_name='Бонусы и подарки')
+
+
 
     def __str__(self):
         return self.text

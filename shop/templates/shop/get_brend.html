@@ -5,5 +5,76 @@
 {% block title %}{{ title }}{% endblock %}
 
 {% block content %}
+<div class="get_product">
+  <div class="container">
+    <div class="news_block__row">
+      <a href="#">Вейп-шоп "Смокинг"</a>
+      <p>/</p>
+      <p>Электронные сигареты</p>
+    </div>
+    <div class="news_block__main-title">Электронные сигареты111111</div>
+    <div class="get_product__category">
 
+      <ul class="get_product__list">
+        <li class="get_product__name-category">Категория: </li>
+        {% for item in category %}
+        <li><a href="{{ item.get_absolute_url }}">{{ item.title }}</a></li>
+        {% endfor %}
+      </ul>
+
+    </div>
+    <details class="get_product__spoller">
+      <summary class="get_product__summrry">Категории: <i class="get_product__arrow right"></i></summary>
+      <ul class="get_product__list-spoller">
+        {% for item in category %}
+        <li><a href="{{ item.get_absolute_url }}">{{ item.title }}</a></li>
+        {% endfor %}
+      </ul>
+    </details>
+    <div class="get_product__grid">
+
+      {% for item in product %}
+      <div class="get_product__item">
+        <div class="get_product__img">
+
+            <a href="#"><img src="" alt=""></a>
+
+            <div class="get_product__img-body">
+              <a class="get_product__menu-img" href="#"><img src="img/menu/compare_1.PNG" alt=""></a>
+              <a class="get_product__menu-img" href="#"><img src="img/menu/favorites_1.PNG" alt=""></a>
+            </div>
+        </div>
+        <div class="get_product__title"><a href="{{ item.get_absolute_url }}">{{ item.title }}</a></div>
+        <div class="get_product__body">
+          <div class="get_product__block">
+            <p class="get_product__discount">{{ item.old_price }}</p>
+            <p class="get_product__price">{{ item.new_price }}</p>
+          </div>
+          <div class="get_product__button"><a href="#">Купить</a></div>
+        </div>
+      </div>
+      {% endfor %}
+
+
+
+    </div>
+  </div>
+</div>
+
+<div class="paginator">
+  <div class="container">
+    <div class="paginator__container">
+      <a href=""><<</a>
+      <a href="">1</a>
+      <a href="">2</a>
+      <a href="">3</a>
+      <a href="">4</a>
+      <a href="">5</a>
+      <a href="">6</a>
+      <a href="">7</a>
+      <a href="">>></a>
+    </div>
+
+  </div>
+</div>
 {% endblock %}
