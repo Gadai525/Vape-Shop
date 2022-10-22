@@ -13,8 +13,9 @@
       <p>/</p>
       <p>{{ title }}</p>
     </div>
-
+    {% autoescape off %}
     <div class="news_block__content">{{ bonuses_gifts.text }}</div>
+    {% endautoescape %}
   </div>
 </div>
 {% endblock %}

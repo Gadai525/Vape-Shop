@@ -126,3 +126,53 @@ def bonuses_gifts(requests):
         'title': 'Бонусы и подарки',
     }
     return render(requests, template_name='shop/bonuses_gifts.html', context=context)
+
+def delivery(requests):
+    delivery = Delivery.objects.first()
+
+    context = {
+        'title': 'asdasd',
+        'delivery': delivery,
+    }
+
+    return render(requests, template_name='shop/delivery.html', context=context)
+
+def payment(requests):
+    payment = Payment.objects.first()
+
+    context = {
+        'title': 'asdasd',
+        'payment': payment,
+    }
+
+    return render(requests, template_name='shop/payment.html', context=context)
+
+def how_to_order(requests):
+    how_to_order = How_to_order.objects.first()
+
+    context = {
+        'title': 'fsdfsd',
+        'how_to_order': how_to_order,
+    }
+
+    return render(requests, template_name='shop/how_to_order.html', context=context)
+
+def guarantees(requests):
+    guarantees = Guarantees.objects.first()
+
+    context = {
+        'title': 'asdas',
+        'guarantees': guarantees,
+    }
+
+    return render(requests, template_name='shop/guarantees.html', context=context)
+
+def help(requests):
+    help = Help.objects.all()
+
+    context = {
+        'title': 'aasdad',
+        'help': help,
+    }
+
+    return render(requests, template_name='shop/help.html', context=context)

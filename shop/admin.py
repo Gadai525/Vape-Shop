@@ -92,19 +92,57 @@ class NewsAdmin(admin.ModelAdmin):
             return 'Фото не установлено'
     get_photo.short_description = 'Минимтюра'
 
+class Bonuses_giftsAdminForm(forms.ModelForm):
+    text = forms.CharField(widget=CKEditorUploadingWidget())
+    class Meta:
+        model = Bonuses_gifts
+        fields = '__all__'
+
 class Bonuses_giftsAdmin(admin.ModelAdmin):
+    form = Bonuses_giftsAdminForm
     list_display = ('text',)
+
+class DeliveryAdminForm(forms.ModelForm):
+    text = forms.CharField(widget=CKEditorUploadingWidget())
+    class Meta:
+        model = Delivery
+        fields = '__all__'
 
 class DeliveryAdmin(admin.ModelAdmin):
+    form = DeliveryAdminForm
     list_display = ('text',)
+
+
+class PaymentAdminForm(forms.ModelForm):
+    text = forms.CharField(widget=CKEditorUploadingWidget())
+    class Meta:
+        model = Payment
+        fields = '__all__'
 
 class PaymentAdmin(admin.ModelAdmin):
+    form = PaymentAdminForm
     list_display = ('text',)
+
+
+class How_to_orderAdminForm(forms.ModelForm):
+    text = forms.CharField(widget=CKEditorUploadingWidget())
+    class Meta:
+        model = How_to_order
+        fields = '__all__'
 
 class How_to_orderAdmin(admin.ModelAdmin):
+    form = How_to_orderAdminForm
     list_display = ('text',)
 
+
+class GuaranteesAdminForm(forms.ModelForm):
+    text = forms.CharField(widget=CKEditorUploadingWidget())
+    class Meta:
+        model = Guarantees
+        fields = '__all__'
+
 class GuaranteesAdmin(admin.ModelAdmin):
+    form = GuaranteesAdminForm
     list_display = ('text',)
 
 
@@ -117,6 +155,11 @@ class MainPageAdminForm(forms.ModelForm):
 class MainPageAdmin(admin.ModelAdmin):
     form = MainPageAdminForm
     list_display = ('text',)
+
+
+
+class HelpAdmin(admin.ModelAdmin):
+    list_display = ('title', 'text')
 
 
 
@@ -138,7 +181,4 @@ admin.site.register(Payment, PaymentAdmin)
 admin.site.register(How_to_order, How_to_orderAdmin)
 admin.site.register(Guarantees, GuaranteesAdmin)
 admin.site.register(MainPage, MainPageAdmin)
-
-
-
-#admin.site.register(Product, ProductAdminForm)
+admin.site.register(Help, HelpAdmin)

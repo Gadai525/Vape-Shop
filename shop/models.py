@@ -255,6 +255,17 @@ class Guarantees(models.Model):
         verbose_name_plural='Гарантия'
         verbose_name = 'Гарантии'
 
+class Help(models.Model):
+    title = models.CharField(max_length=250, verbose_name='Вопрос')
+    text = models.TextField(verbose_name='Ответ')
+
+    def __str__(self):
+        return self.title
+
+    class Meta:
+        verbose_name_plural='Вопрос'
+        verbose_name = 'Вопросы'
+
 #class Contact(models.Model):
 #    text = models.TextField(verbose_name='Контакты')
 

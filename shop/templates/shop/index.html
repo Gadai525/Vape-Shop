@@ -369,7 +369,7 @@
         <div class="about-company__text">
 
           {% for item in mainpage %}
-            {{ item.text }}
+            {{ item.text|safe }}
           {% endfor %}
 
 

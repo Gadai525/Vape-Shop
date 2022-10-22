@@ -14,5 +14,10 @@ urlpatterns = [
     path('product/<str:slug_category>/<str:slug_subcategory>/<str:slug_product>/', get_product, name='get_product'),
 
     path('brends/<str:slug_brend>/', get_brend, name='get_brend'),
-    path('str/bonuses-gifts/', bonuses_gifts, name='bonuses_gifts'),
+    path('bonuses-gifts/', bonuses_gifts, name='bonuses_gifts'),
+    path('delivery/', delivery, name='delivery'),
+    path('payment/', payment, name='payment'),
+    path('how_to_order/', how_to_order, name='how_to_order'),
+    path('guarantees/', guarantees, name='guarantees'),
+    path('help/', help, name='help'),
 ]
