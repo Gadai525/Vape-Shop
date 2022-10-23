@@ -5,5 +5,18 @@
 {% block title %}{{ title }}{% endblock %}
 
 {% block content %}
-
+<div class="news_block">
+  <div class="container">
+    <div class="news_block__row">
+      <a href="#">Вейп-шоп "Смокинг"</a>
+      <p>/</p>
+      <p>{{ title }}</p>
+    </div>
+    {% autoescape off %}
+      <div class="news_block__content">
+         {{ delivery.text }}
+      </div>
+    {% endautoescape %}
+  </div>
+</div>
 {% endblock %}

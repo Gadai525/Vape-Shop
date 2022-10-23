@@ -131,7 +131,7 @@ def delivery(requests):
     delivery = Delivery.objects.first()
 
     context = {
-        'title': 'asdasd',
+        'title': 'Доставка',
         'delivery': delivery,
     }
 
@@ -141,7 +141,7 @@ def payment(requests):
     payment = Payment.objects.first()
 
     context = {
-        'title': 'asdasd',
+        'title': 'Оплата',
         'payment': payment,
     }
 
@@ -151,7 +151,7 @@ def how_to_order(requests):
     how_to_order = How_to_order.objects.first()
 
     context = {
-        'title': 'fsdfsd',
+        'title': 'Как заказать',
         'how_to_order': how_to_order,
     }
 
@@ -161,7 +161,7 @@ def guarantees(requests):
     guarantees = Guarantees.objects.first()
 
     context = {
-        'title': 'asdas',
+        'title': 'Гарантии',
         'guarantees': guarantees,
     }
 
@@ -171,8 +171,18 @@ def help(requests):
     help = Help.objects.all()
 
     context = {
-        'title': 'aasdad',
+        'title': 'Помощь',
         'help': help,
     }
 
     return render(requests, template_name='shop/help.html', context=context)
+
+def stock(requests):
+    stock = Stock.objects.first()
+
+    context = {
+        'title': 'asdas',
+        'stock': stock,
+    }
+
+    return render(requests, template_name='shop/stock.html', context=context)

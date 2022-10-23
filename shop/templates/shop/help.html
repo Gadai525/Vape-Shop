@@ -5,5 +5,30 @@
 {% block title %}{{ title }}{% endblock %}
 
 {% block content %}
+  <div class="help">
+    <div class="container">
+      <div class="help__content">
+        <div class="news_block__row">
+          <a href="#">Вейп-шоп "Смокинг"</a>
+          <p>/</p>
+          <a href="#">Вопрос-ответ</a>
+        </div>
+        <div class="news_block__main-title">Помощь</div>
+        {% for item in help %}
+          <div class="help__item">
+            <details class="help__details">
+              <summary class="help__summary">
+                {{ item.title }}
+              </summary>
+              {% autoescape off %}
+                <p>{{ item.text }}</p>
+              {% endautoescape %}
+            </details>
+          </div>
+        {% endfor %}
 
+
+      </div>
+    </div>
+  </div>
 {% endblock %}

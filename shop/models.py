@@ -206,8 +206,6 @@ class Volume(models.Model):
 class Bonuses_gifts(models.Model):
     text = models.TextField(verbose_name='Бонусы и подарки')
 
-
-
     def __str__(self):
         return self.text
 
@@ -288,6 +286,18 @@ class MainPage(models.Model):
     class Meta:
         verbose_name_plural='Описание на главное странице'
         verbose_name = 'Описание на главное странице'
+
+
+class Stock(models.Model):
+    title = models.CharField(max_length=250, verbose_name='Название')
+    text = models.TextField(verbose_name='Контен')
+
+    def __str__(self):
+        return self.title
+
+    class Meta:
+        verbose_name_plural='Акция'
+        verbose_name='Акции'
 
 #-----------------------------------------------------------------------------------------
 #-----------------------------------------------------------------------------------------

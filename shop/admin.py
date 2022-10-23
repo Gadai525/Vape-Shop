@@ -158,9 +158,27 @@ class MainPageAdmin(admin.ModelAdmin):
 
 
 
+class HelpAdminForm(forms.ModelForm):
+    text = forms.CharField(widget=CKEditorUploadingWidget())
+    class Meta:
+        model = Help
+        fields = '__all__'
+
 class HelpAdmin(admin.ModelAdmin):
+    form = HelpAdminForm
     list_display = ('title', 'text')
 
+
+
+class StockAdminForm(forms.ModelForm):
+    text = forms.CharField(widget=CKEditorUploadingWidget())
+    class Meta:
+        model = Stock
+        fields = '__all__'
+
+class StockAdmin(admin.ModelAdmin):
+    form = StockAdminForm
+    list_display = ('title', 'text')
 
 
 
@@ -182,3 +200,4 @@ admin.site.register(How_to_order, How_to_orderAdmin)
 admin.site.register(Guarantees, GuaranteesAdmin)
 admin.site.register(MainPage, MainPageAdmin)
 admin.site.register(Help, HelpAdmin)
+admin.site.register(Stock, StockAdmin)

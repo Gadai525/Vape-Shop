@@ -20,4 +20,5 @@ urlpatterns = [
     path('how_to_order/', how_to_order, name='how_to_order'),
     path('guarantees/', guarantees, name='guarantees'),
     path('help/', help, name='help'),
+    path('all-stock/', stock, name='stock'),
 ]
