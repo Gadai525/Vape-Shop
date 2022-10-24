@@ -178,11 +178,21 @@ def help(requests):
     return render(requests, template_name='shop/help.html', context=context)
 
 def stock(requests):
-    stock = Stock.objects.first()
+    stock = Stock.objects.all()
 
     context = {
-        'title': 'asdas',
+        'title': 'Акции',
         'stock': stock,
     }
 
     return render(requests, template_name='shop/stock.html', context=context)
+
+def get_stock(requests, slug_stock):
+    stock = Stock.objects.filter(slug=slug_stock)
+
+    context = {
+        'title': 'aasda',
+        'stock': stock,
+    }
+
+    return render(requests, template_name='shop/get_stock.html', context=context)

@@ -1,4 +1,11 @@
 @media (max-width: 1500px){}
+
+@media (max-width: 1450px){
+	.stock__grid {
+		display: grid;
+		grid-template-columns: 1fr 1fr 1fr;
+	}
+}
 @media (max-width: 1400px){
 	.header__consultation{
 		display: none;
@@ -53,6 +60,12 @@
 	.get_product__list-spoller a {
 		font-size: 17px;
 		color: black;
+	}
+}
+@media (max-width: 1070px){
+	.stock__grid {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
 	}
 }
 @media (max-width: 1000px){
@@ -162,8 +175,13 @@
 
 }
 
-@media (max-width: 750px){
+@media (max-width: 716px){
 
+
+	.stock__grid {
+		display: grid;
+		grid-template-columns: 1fr;
+	}
 
 
 }

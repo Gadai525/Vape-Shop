@@ -177,8 +177,16 @@ class StockAdminForm(forms.ModelForm):
         fields = '__all__'
 
 class StockAdmin(admin.ModelAdmin):
+    prepopulated_fields = {'slug': ('title',)}
     form = StockAdminForm
-    list_display = ('title', 'text')
+    list_display = ('title', 'slug', 'text', 'get_photo')
+
+    def get_photo(self, obj):
+        if obj.image:
+            return mark_safe(f'<img src="{ obj.image.url }" width="300" height="200">')
+        else:
+            return 'Фото не установлено'
+    get_photo.short_description = 'Минимтюра'
 
 
 

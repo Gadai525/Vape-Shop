@@ -5,5 +5,46 @@
 {% block title %}{{ title }}{% endblock %}
 
 {% block content %}
+<div class="stock">
+      <div class="container">
+        <div class="all-news__row">
+          <a href="#">Вейп-шоп "Смокинг"</a>
+          <p>/</p>
+          <p>Акции</p>
+        </div>
+        <div class="stock__main-title">Акции</div>
+        <div class="stock__grid">
+          {% for item in stock %}
+            <div class="stock__item">
+              <div class="stock__img">
+                {% if item.image %}
+                <img src="{{ item.image.url }}" alt="">
+                {% endif %}
+              </div>
+              <div class="stock__time">
+                <img src="{% static 'img/menu/time.png' %}" alt="">
+                <p>{{ item.created_at }}</p>
+              </div>
+              <div class="stock__title"><a href="{{ item.get_absolute_url }}">{{ item.title }}</a></div>
+            </div>
+          {% endfor %}
 
+        </div>
+        <div class="paginator">
+          <div class="container">
+            <div class="paginator__container">
+              <a href=""><<</a>
+              <a href="">1</a>
+              <a href="">2</a>
+              <a href="">3</a>
+              <a href="">4</a>
+              <a href="">5</a>
+              <a href="">6</a>
+              <a href="">7</a>
+              <a href="">>></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
 {% endblock %}

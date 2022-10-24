@@ -8,13 +8,15 @@
   <div class="news_block">
     <div class="container">
       <div class="news_block__row">
-        <a href="#">Вейп-шоп "Смокинг"</a>
+        <a href="{% url 'home_page' %}">Вейп-шоп "Смокинг"</a>
         <p>/</p>
         <p>{{ title }}</p>
       </div>
       {% autoescape off %}
         <div class="news_block__content">
-           {{ delivery.text }}
+          {% for item in stock %}
+            {{ item.text }}
+          {% endfor %}
         </div>
       {% endautoescape %}
     </div>

@@ -21,4 +21,5 @@ urlpatterns = [
     path('guarantees/', guarantees, name='guarantees'),
     path('help/', help, name='help'),
     path('all-stock/', stock, name='stock'),
+    path('stock/<str:slug_stock>/', get_stock, name='get_stock'),
 ]

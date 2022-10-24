@@ -5,28 +5,26 @@
 {% block title %}{{ title }}{% endblock %}
 
 {% block content %}
-<div class="catalog">
-  <div class="container">
-    <div class="catalog-category__row">
-      <a href="{% url 'home_page' %}">Вейп-шоп "Смокинг"</a>
-      <p>/</p>
-      <p>Каталог товаров</p>
-    </div>
-    <div class="catalog__main-title">Каталог товаров</div>
-    <div class="cataglog__grid">
-      {% for item in all_catalog %}
-      <div class="catalog__item">
-        <div class="catalog__title"><a href="{{ item.get_absolute_url }}">{{ item.title }}</a></div>
-        <div class="catalog__img">
-          {% if item.image %}
-            <a href="{{ item.get_absolute_url }}"><img src="{{ item.image.url }}" alt=""></a>
-          {% endif %}
-
-        </div>
+  <div class="catalog">
+    <div class="container">
+      <div class="catalog-category__row">
+        <a href="{% url 'home_page' %}">Вейп-шоп "Смокинг"</a>
+        <p>/</p>
+        <p>Каталог товаров</p>
       </div>
-      {% endfor %}
-
+      <div class="catalog__main-title">Каталог товаров</div>
+      <div class="cataglog__grid">
+        {% for item in all_catalog %}
+        <div class="catalog__item">
+          <div class="catalog__title"><a href="{{ item.get_absolute_url }}">{{ item.title }}</a></div>
+          <div class="catalog__img">
+            {% if item.image %}
+              <a href="{{ item.get_absolute_url }}"><img src="{{ item.image.url }}" alt=""></a>
+            {% endif %}
+          </div>
+        </div>
+        {% endfor %}
+      </div>
     </div>
   </div>
-</div>
 {% endblock %}

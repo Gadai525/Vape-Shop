@@ -6,381 +6,354 @@
 
 {% block content %}
 <div class="nav-menu">
-      <div class="container">
-      <div class="nav-menu__row">
-        <div class="nav-menu__block">
-          <ul class="nav-menu__list">
-
-            {% for item in all_category %}
-            <li>
-              <a class="nav-menu__item" href="{{ item.get_absolute_url }}">{{ item.title }}</a>
-              <ul class="nav-menu__sublist">
-                {% for obj in item.subcategory_set.all %}
-                <li><a href="{{ obj.get_absolute_url }}">{{ obj.title }}</a></li>
-                {% endfor %}
-              </ul>
-            </li>
+  <div class="container">
+  <div class="nav-menu__row">
+    <div class="nav-menu__block">
+      <ul class="nav-menu__list">
+        {% for item in all_category %}
+        <li>
+          <a class="nav-menu__item" href="{{ item.get_absolute_url }}">{{ item.title }}</a>
+          <ul class="nav-menu__sublist">
+            {% for obj in item.subcategory_set.all %}
+            <li><a href="{{ obj.get_absolute_url }}">{{ obj.title }}</a></li>
             {% endfor %}
-
           </ul>
-        </div>
-        <div class="nav-menu__img">
-          <img src="{% static 'img/space.PNG' %}" alt="">
-        </div>
-      </div>
-      </div>
+        </li>
+        {% endfor %}
+      </ul>
     </div>
+    <div class="nav-menu__img">
+      <img src="{% static 'img/space.PNG' %}" alt="">
+    </div>
+  </div>
+  </div>
+</div>
 
-
-    <div class="notice">
-      <div class="container">
-        <div class="notice__row">
-          <div class="notice__item">
-            <div class="notice__image">
-              <img src="{% static 'img/Notice/discounts.PNG' %}" alt="">
-            </div>
-            <div class="notice__body">
-              <div class="notice__title">Скидка на доставку</div>
-              <div class="notice__text">
-                При заказе от 900 рублей вам предоставляется скидка на доставку. Чем больше заказ, тем больше скидка.
-              </div>
-            </div>
-          </div>
-          <div class="notice__item">
-            <div class="notice__image">
-              <img src="{% static 'img/Notice/discounts.PNG' %}" alt="">
-            </div>
-            <div class="notice__body">
-              <div class="notice__title">Скидка на доставку</div>
-              <div class="notice__text">
-                При заказе от 900 рублей вам предоставляется скидка на доставку. Чем больше заказ, тем больше скидка.
-              </div>
-            </div>
-          </div>
-          <div class="notice__item">
-            <div class="notice__image">
-              <img src="{% static 'img/Notice/discounts.PNG' %}" alt="">
-            </div>
-            <div class="notice__body">
-              <div class="notice__title">Скидка на доставку</div>
-              <div class="notice__text">
-                При заказе от 900 рублей вам предоставляется скидка на доставку. Чем больше заказ, тем больше скидка.
-              </div>
-            </div>
-          </div>
-          <div class="notice__item">
-            <div class="notice__image">
-              <img src="{% static 'img/Notice/discounts.PNG' %}" alt="">
-            </div>
-            <div class="notice__body">
-              <div class="notice__title">Скидка на доставку</div>
-              <div class="notice__text">
-                При заказе от 900 рублей вам предоставляется скидка на доставку. Чем больше заказ, тем больше скидка.
-              </div>
-            </div>
-          </div>
-          <div class="notice__item">
-            <div class="notice__image">
-              <img src="{% static 'img/Notice/discounts.PNG' %}" alt="">
-            </div>
-            <div class="notice__body">
-              <div class="notice__title">Скидка на доставку</div>
-              <div class="notice__text">
-                При заказе от 900 рублей вам предоставляется скидка на доставку. Чем больше заказ, тем больше скидка.
-              </div>
-            </div>
+<div class="notice">
+  <div class="container">
+    <div class="notice__row">
+      <div class="notice__item">
+        <div class="notice__image">
+          <img src="{% static 'img/Notice/discounts.PNG' %}" alt="">
+        </div>
+        <div class="notice__body">
+          <div class="notice__title">Скидка на доставку</div>
+          <div class="notice__text">
+            При заказе от 900 рублей вам предоставляется скидка на доставку. Чем больше заказ, тем больше скидка.
           </div>
         </div>
       </div>
-    </div>
-
-    <div class="main-catelog">
-      <div class="container">
-        <div class="main-catelog__grid__1">
-          {% for item in one_category %}
-          <div class="main-catelog__item">
-            <div class="main-catelog__title">{{ item.title }}</div>
-            <div class="main-catelog__row">
-              <ul class="main-catelog__list">
-                <li><a href="#">Вейпы</a></li>
-                <li><a href="#">Перезаряжаемые одноразки</a></li>
-                <li><a href="#">Elf Bar</a></li>
-                <li><a href="#">{{ obj.title }}</a></li>
-              </ul>
-              <ul class="main-catelog__list">
-                <li><a href="#">Стартовые наборы</a></li>
-                <li><a href="#">Вейпы</a></li>
-                <li><a href="#">Перезаряжаемые одноразки</a></li>
-                <li><a href="#">Elf Bar</a></li>
-              </ul>
-              <div class="main-catelog__image">
-                {% if item.image %}
-                  <img src="{{ item.image.url }}" alt="">
-                {% endif %}
-              </div>
-            </div>
-          </div>
-          {% endfor %}
-
-          {% for item in two_category %}
-          <div class="main-catelog__item">
-            <div class="main-catelog__title">{{ item.title }}</div>
-            <div class="main-catelog__row">
-              <ul class="main-catelog__list">
-                <li><a href="#">Фруктовые</a></li>
-                <li><a href="#">Десертные</a></li>
-                <li><a href="#">Табачные</a></li>
-                <li><a href="#">Освежающие</a></li>
-              </ul>
-              <ul class="main-catelog__list">
-                <li><a href="#">С солевым никотином</a></li>
-                <li><a href="#">Необычные жидкости</a></li>
-                <li><a href="#">Нпитки</a></li>
-                <li><a href="#">Кислые</a></li>
-              </ul>
-              <div class="main-catelog__image">
-                {% if item.image %}
-                  <img src="{{ item.image.url }}" alt="">
-                {% endif %}
-              </div>
-            </div>
-          </div>
-          {% endfor %}
-
-          {% for item in three_categroy %}
-          <div class="main-catelog__item">
-            <div class="main-catelog__title">{{ item.title }}</div>
-            <div class="main-catelog__row">
-              <ul class="main-catelog__list">
-                <li><a href="#">Механические моды</a></li>
-                <li><a href="#">Сквонк моды</a></li>
-                <li><a href="#">Бокс моды со встроенным АКБ</a></li>
-                <li><a href="#">Elf Bar</a></li>
-              </ul>
-              <ul class="main-catelog__list">
-                <li><a href="#">Механические моды</a></li>
-                <li><a href="#">Сквонк моды</a></li>
-                <li><a href="#">Бокс моды со встроенным АКБ</a></li>
-                <li><a href="#">Elf Bar</a></li>
-              </ul>
-              <div class="main-catelog__image">
-                {% if item.image %}
-                  <img src="{{ item.image.url }}" alt="">
-                {% endif %}
-              </div>
-            </div>
-          </div>
-          {% endfor %}
-
-          {% for item in four_category %}
-          <div class="main-catelog__item">
-            <div class="main-catelog__title">{{ item.title }}</div>
-            <div class="main-catelog__row">
-              <ul class="main-catelog__list">
-                <li><a href="#">Подборка от Аделя</a></li>
-                <li><a href="#">Подборка от Алины</a></li>
-                <li><a href="#">Подборка от Николая</a></li>
-              </ul>
-              <ul class="main-catelog__list">
-                <li><a href="#">Подборка от Артема</a></li>
-                <li><a href="#">Подборка от Раиля</a></li>
-                <li><a href="#">Летние жидкости</a></li>
-              </ul>
-              <div class="main-catelog__image">
-                {% if item.image %}
-                <img src="{{ item.image.url }}" alt="">
-                {% endif %}
-              </div>
-            </div>
-          </div>
-          {% endfor %}
+      <div class="notice__item">
+        <div class="notice__image">
+          <img src="{% static 'img/Notice/discounts.PNG' %}" alt="">
         </div>
-        <div class="main-catelog__grid__2">
-
-          {% for item in other_category %}
-          <div class="main-catelog__item">
-            <div class="main-catelog__title">{{ item.title }}</div>
-            <div class="main-catelog__row">
-              <ul class="main-catelog__list">
-                {% for obj in item.subcategory_set.all %}
-                <li><a href="#">{{ obj.title }}</a></li>
-                {% endfor %}
-              </ul>
-              <div class="main-catelog__image">
-                {% if item.image %}
-                <img src="{{ item.image.url }}" alt="">
-                {% endif %}
-              </div>
-            </div>
+        <div class="notice__body">
+          <div class="notice__title">Скидка на доставку</div>
+          <div class="notice__text">
+            При заказе от 900 рублей вам предоставляется скидка на доставку. Чем больше заказ, тем больше скидка.
           </div>
-          {% endfor %}
         </div>
-
       </div>
-    </div>
-
-    <div class="sale">
-      <div class="container">
-        <div class="sale__main-title"><a href="#">Распрадажа</a></div>
-        <div class="sale__grid">
-          {% for item in sale_product %}
-          <div class="sale__item">
-            <div class="sale__img">
-
-              {% if item.main_image %}
-                <a href="{{ item.get_absolute_url }}"><img src="{{ item.main_image.url }}" alt=""></a>
-              {% endif %}
-
-              <div class="sale__img-body">
-                <a class="sale__menu-img" href="#"><img src="{% static 'img/menu/compare_1.PNG' %}" alt=""></a>
-                <a class="sale__menu-img" href="#"><img src="{% static 'img/menu/favorites_1.PNG' %}" alt=""></a>
-              </div>
-            </div>
-            <div class="sale__title"><a href="{{ item.get_absolute_url }}">{{ item.title }}312312</a></div>
-            <div class="sale__body">
-              <div class="sale__block">
-                <p class="sale__discount">{{ item.old_price }}р</p>
-                <p class="sale__price">{{ item.new_price }}р</p>
-              </div>
-              <div class="sale__button"><a href="#">Купить</a></div>
-            </div>
+      <div class="notice__item">
+        <div class="notice__image">
+          <img src="{% static 'img/Notice/discounts.PNG' %}" alt="">
+        </div>
+        <div class="notice__body">
+          <div class="notice__title">Скидка на доставку</div>
+          <div class="notice__text">
+            При заказе от 900 рублей вам предоставляется скидка на доставку. Чем больше заказ, тем больше скидка.
           </div>
-          {% endfor %}
+        </div>
+      </div>
+      <div class="notice__item">
+        <div class="notice__image">
+          <img src="{% static 'img/Notice/discounts.PNG' %}" alt="">
+        </div>
+        <div class="notice__body">
+          <div class="notice__title">Скидка на доставку</div>
+          <div class="notice__text">
+            При заказе от 900 рублей вам предоставляется скидка на доставку. Чем больше заказ, тем больше скидка.
+          </div>
+        </div>
+      </div>
+      <div class="notice__item">
+        <div class="notice__image">
+          <img src="{% static 'img/Notice/discounts.PNG' %}" alt="">
+        </div>
+        <div class="notice__body">
+          <div class="notice__title">Скидка на доставку</div>
+          <div class="notice__text">
+            При заказе от 900 рублей вам предоставляется скидка на доставку. Чем больше заказ, тем больше скидка.
+          </div>
         </div>
       </div>
     </div>
+  </div>
+</div>
 
-    <div class="sale">
-      <div class="container">
-        <div class="sale__main-title"><a href="#">Выбор покупателя</a></div>
-        <div class="sale__grid">
-          {% for item in buyer_choice_product %}
-          <div class="sale__item">
-            <div class="sale__img">
-              {% if item.main_image %}
-                <a href="{{ item.get_absolute_url }}"><img src="{{ item.main_image.url }}" alt=""></a>
-              {% endif %}
-
-              <div class="sale__img-body">
-                <a class="sale__menu-img" href="#"><img src="{% static 'img/menu/compare_1.PNG' %}" alt=""></a>
-                <a class="sale__menu-img" href="#"><img src="{% static 'img/menu/favorites_1.PNG' %}" alt=""></a>
-              </div>
-            </div>
-            <div class="sale__title"><a href="{{ item.get_absolute_url }}">{{ item.title }}</a></div>
-            <div class="sale__body">
-              <div class="sale__block">
-                <p class="sale__discount">{{ item.old_price }}р</p>
-                <p class="sale__price">{{ item.new_price }}р</p>
-              </div>
-              <div class="sale__button"><a href="#">Купить</a></div>
-            </div>
-          </div>
-          {% endfor %}
-        </div>
-      </div>
-    </div>
-
-    <div class="sale">
-      <div class="container">
-        <div class="sale__main-title"><a href="#">Новинки</a></div>
-        <div class="sale__grid">
-          {% for item in novelties_product %}
-          <div class="sale__item">
-            <div class="sale__img">
-              {% if item.main_image %}
-                <a href="{{ item.get_absolute_url }}"><img src="{{ item.main_image.url }}" alt=""></a>
-              {% endif %}
-
-              <div class="sale__img-body">
-                <a class="sale__menu-img" href="#"><img src="{% static 'img/menu/compare_1.PNG' %}" alt=""></a>
-                <a class="sale__menu-img" href="#"><img src="{% static 'img/menu/favorites_1.PNG' %}" alt=""></a>
-              </div>
-            </div>
-            <div class="sale__title"><a href="{{ item.get_absolute_url }}">{{ item.title }}</a></div>
-            <div class="sale__body">
-              <div class="sale__block">
-                <p class="sale__discount">{{ item.old_price }}р</p>
-                <p class="sale__price">{{ item.new_price }}р</p>
-              </div>
-              <div class="sale__button"><a href="#">Купить</a></div>
-            </div>
-          </div>
-          {% endfor %}
-        </div>
-      </div>
-    </div>
-
-    <div class="article">
-      <div class="container">
-        <div class="article__main-title"><a href="{% url 'all_news' %}">Статьи</a></div>
-        <div class="article__row">
-
-          {% for item in all_news %}
-          <div class="article__item">
-            <div class="article__img">
-              {% if item.image %}
-                <img src="{{ item.image.url }}" alt="">
-              {% endif %}
-            </div>
-            <div class="article__time">
-              <img src="{% static 'img/menu/time.png' %}" alt="">
-              <p>{{ item.created_at }}</p>
-            </div>
-            <div class="article__title"><a href="{{ item.get_absolute_url }}">{{ item.title }}</a></div>
-            <div class="article__text">
-              <p>
-                {{ item.text|linebreaks|truncatewords:70 }}
-              </p>
-            </div>
-          </div>
-          {% endfor %}
-
-
-
-
-        </div>
-      </div>
-    </div>
-
-    <div class="brends">
-      <div class="container">
-        <div class="brends__grid">
-          {% for brend in all_brends %}
-          <div class="brends__item">
-
-            {% if brend.image %}
-              <a href="{{ brend.get_absolute_url }}"><img src="{{ brend.image.url }}" alt=""></a>
+<div class="main-catelog">
+  <div class="container">
+    <div class="main-catelog__grid__1">
+      {% for item in one_category %}
+      <div class="main-catelog__item">
+        <div class="main-catelog__title">{{ item.title }}</div>
+        <div class="main-catelog__row">
+          <ul class="main-catelog__list">
+            <li><a href="#">Вейпы</a></li>
+            <li><a href="#">Перезаряжаемые одноразки</a></li>
+            <li><a href="#">Elf Bar</a></li>
+            <li><a href="#">{{ obj.title }}</a></li>
+          </ul>
+          <ul class="main-catelog__list">
+            <li><a href="#">Стартовые наборы</a></li>
+            <li><a href="#">Вейпы</a></li>
+            <li><a href="#">Перезаряжаемые одноразки</a></li>
+            <li><a href="#">Elf Bar</a></li>
+          </ul>
+          <div class="main-catelog__image">
+            {% if item.image %}
+              <img src="{{ item.image.url }}" alt="">
             {% endif %}
-
           </div>
-          {% endfor %}
-
-
-
-
-
         </div>
       </div>
-    </div>
+      {% endfor %}
 
-    <div class="about-company">
-      <div class="container">
-        {% autoescape off %}
-        <div class="about-company__text">
-
-          {% for item in mainpage %}
-            {{ item.text|safe }}
-          {% endfor %}
-
-
-
-
-
-
+      {% for item in two_category %}
+      <div class="main-catelog__item">
+        <div class="main-catelog__title">{{ item.title }}</div>
+        <div class="main-catelog__row">
+          <ul class="main-catelog__list">
+            <li><a href="#">Фруктовые</a></li>
+            <li><a href="#">Десертные</a></li>
+            <li><a href="#">Табачные</a></li>
+            <li><a href="#">Освежающие</a></li>
+          </ul>
+          <ul class="main-catelog__list">
+            <li><a href="#">С солевым никотином</a></li>
+            <li><a href="#">Необычные жидкости</a></li>
+            <li><a href="#">Нпитки</a></li>
+            <li><a href="#">Кислые</a></li>
+          </ul>
+          <div class="main-catelog__image">
+            {% if item.image %}
+              <img src="{{ item.image.url }}" alt="">
+            {% endif %}
+          </div>
         </div>
-        {% endautoescape %}
-
       </div>
+      {% endfor %}
+
+      {% for item in three_categroy %}
+      <div class="main-catelog__item">
+        <div class="main-catelog__title">{{ item.title }}</div>
+        <div class="main-catelog__row">
+          <ul class="main-catelog__list">
+            <li><a href="#">Механические моды</a></li>
+            <li><a href="#">Сквонк моды</a></li>
+            <li><a href="#">Бокс моды со встроенным АКБ</a></li>
+            <li><a href="#">Elf Bar</a></li>
+          </ul>
+          <ul class="main-catelog__list">
+            <li><a href="#">Механические моды</a></li>
+            <li><a href="#">Сквонк моды</a></li>
+            <li><a href="#">Бокс моды со встроенным АКБ</a></li>
+            <li><a href="#">Elf Bar</a></li>
+          </ul>
+          <div class="main-catelog__image">
+            {% if item.image %}
+              <img src="{{ item.image.url }}" alt="">
+            {% endif %}
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+
+      {% for item in four_category %}
+      <div class="main-catelog__item">
+        <div class="main-catelog__title">{{ item.title }}</div>
+        <div class="main-catelog__row">
+          <ul class="main-catelog__list">
+            <li><a href="#">Подборка от Аделя</a></li>
+            <li><a href="#">Подборка от Алины</a></li>
+            <li><a href="#">Подборка от Николая</a></li>
+          </ul>
+          <ul class="main-catelog__list">
+            <li><a href="#">Подборка от Артема</a></li>
+            <li><a href="#">Подборка от Раиля</a></li>
+            <li><a href="#">Летние жидкости</a></li>
+          </ul>
+          <div class="main-catelog__image">
+            {% if item.image %}
+            <img src="{{ item.image.url }}" alt="">
+            {% endif %}
+          </div>
+        </div>
+      </div>
+      {% endfor %}
     </div>
+    <div class="main-catelog__grid__2">
+
+      {% for item in other_category %}
+      <div class="main-catelog__item">
+        <div class="main-catelog__title">{{ item.title }}</div>
+        <div class="main-catelog__row">
+          <ul class="main-catelog__list">
+            {% for obj in item.subcategory_set.all %}
+            <li><a href="#">{{ obj.title }}</a></li>
+            {% endfor %}
+          </ul>
+          <div class="main-catelog__image">
+            {% if item.image %}
+            <img src="{{ item.image.url }}" alt="">
+            {% endif %}
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+
+  </div>
+</div>
+
+<div class="sale">
+  <div class="container">
+    <div class="sale__main-title"><a href="#">Распрадажа</a></div>
+    <div class="sale__grid">
+      {% for item in sale_product %}
+      <div class="sale__item">
+        <div class="sale__img">
+          {% if item.main_image %}
+            <a href="{{ item.get_absolute_url }}"><img src="{{ item.main_image.url }}" alt=""></a>
+          {% endif %}
+          <div class="sale__img-body">
+            <a class="sale__menu-img" href="#"><img src="{% static 'img/menu/compare_1.PNG' %}" alt=""></a>
+            <a class="sale__menu-img" href="#"><img src="{% static 'img/menu/favorites_1.PNG' %}" alt=""></a>
+          </div>
+        </div>
+        <div class="sale__title"><a href="{{ item.get_absolute_url }}">{{ item.title }}312312</a></div>
+        <div class="sale__body">
+          <div class="sale__block">
+            <p class="sale__discount">{{ item.old_price }}р</p>
+            <p class="sale__price">{{ item.new_price }}р</p>
+          </div>
+          <div class="sale__button"><a href="#">Купить</a></div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+
+<div class="sale">
+  <div class="container">
+    <div class="sale__main-title"><a href="#">Выбор покупателя</a></div>
+    <div class="sale__grid">
+      {% for item in buyer_choice_product %}
+      <div class="sale__item">
+        <div class="sale__img">
+          {% if item.main_image %}
+            <a href="{{ item.get_absolute_url }}"><img src="{{ item.main_image.url }}" alt=""></a>
+          {% endif %}
+          <div class="sale__img-body">
+            <a class="sale__menu-img" href="#"><img src="{% static 'img/menu/compare_1.PNG' %}" alt=""></a>
+            <a class="sale__menu-img" href="#"><img src="{% static 'img/menu/favorites_1.PNG' %}" alt=""></a>
+          </div>
+        </div>
+        <div class="sale__title"><a href="{{ item.get_absolute_url }}">{{ item.title }}</a></div>
+        <div class="sale__body">
+          <div class="sale__block">
+            <p class="sale__discount">{{ item.old_price }}р</p>
+            <p class="sale__price">{{ item.new_price }}р</p>
+          </div>
+          <div class="sale__button"><a href="#">Купить</a></div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+
+<div class="sale">
+  <div class="container">
+    <div class="sale__main-title"><a href="#">Новинки</a></div>
+    <div class="sale__grid">
+      {% for item in novelties_product %}
+      <div class="sale__item">
+        <div class="sale__img">
+          {% if item.main_image %}
+            <a href="{{ item.get_absolute_url }}"><img src="{{ item.main_image.url }}" alt=""></a>
+          {% endif %}
+          <div class="sale__img-body">
+            <a class="sale__menu-img" href="#"><img src="{% static 'img/menu/compare_1.PNG' %}" alt=""></a>
+            <a class="sale__menu-img" href="#"><img src="{% static 'img/menu/favorites_1.PNG' %}" alt=""></a>
+          </div>
+        </div>
+        <div class="sale__title"><a href="{{ item.get_absolute_url }}">{{ item.title }}</a></div>
+        <div class="sale__body">
+          <div class="sale__block">
+            <p class="sale__discount">{{ item.old_price }}р</p>
+            <p class="sale__price">{{ item.new_price }}р</p>
+          </div>
+          <div class="sale__button"><a href="#">Купить</a></div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+
+<div class="article">
+  <div class="container">
+    <div class="article__main-title"><a href="{% url 'all_news' %}">Статьи</a></div>
+    <div class="article__row">
+      {% for item in all_news %}
+      <div class="article__item">
+        <div class="article__img">
+          {% if item.image %}
+            <img src="{{ item.image.url }}" alt="">
+          {% endif %}
+        </div>
+        <div class="article__time">
+          <img src="{% static 'img/menu/time.png' %}" alt="">
+          <p>{{ item.created_at }}</p>
+        </div>
+        <div class="article__title"><a href="{{ item.get_absolute_url }}">{{ item.title }}</a></div>
+        <div class="article__text">
+          <p>
+            {{ item.text|linebreaks|truncatewords:70 }}
+          </p>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+
+<div class="brends">
+  <div class="container">
+    <div class="brends__grid">
+      {% for brend in all_brends %}
+        <div class="brends__item">
+        {% if brend.image %}
+          <a href="{{ brend.get_absolute_url }}"><img src="{{ brend.image.url }}" alt=""></a>
+        {% endif %}
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+
+<div class="about-company">
+  <div class="container">
+    {% autoescape off %}
+    <div class="about-company__text">
+      {% for item in mainpage %}
+        {{ item.text|safe }}
+      {% endfor %}
+    </div>
+    {% endautoescape %}
+  </div>
+</div>
 
 {% endblock %}

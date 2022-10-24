@@ -290,7 +290,13 @@ class MainPage(models.Model):
 
 class Stock(models.Model):
     title = models.CharField(max_length=250, verbose_name='Название')
-    text = models.TextField(verbose_name='Контен')
+    slug = models.SlugField(max_length=50, verbose_name='Url', unique=True)
+    text = models.TextField(verbose_name='Контент')
+    created_at = models.DateTimeField(auto_now_add=True, verbose_name='Дата публикации')
+    image = models.ImageField(upload_to='media/stock-image/%Y/%m/%d/')
+
+    def get_absolute_url(self):
+        return reverse('get_stock', kwargs={'slug_stock': self.slug})
 
     def __str__(self):
         return self.title
