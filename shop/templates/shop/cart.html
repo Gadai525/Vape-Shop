@@ -1,0 +1,88 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block title %}{{ title }}{% endblock %}
+
+{% block content %}
+  <div class="cart">
+    <div class="container">
+      <div class="cart__row">
+        <div class="cart__block-1">
+          <div class="cart__block-title">
+            <p>Наименование</p>
+            <p>Количество</p>
+            <p>Сумма</p>
+          </div>
+          <div class="cart__item">
+            <div class="cart__block-row">
+              <div class="cart__image-title">
+                <img src="img/cart/893f5059b655a330fbbe3029c1645344.jpg" alt="">
+                <div class="cart__product-title">Какой-то ебанный вейп</div>
+              </div>
+              <div class="cart__form">
+                <form action="#">
+                  <div class="cart__form-block">
+                    <button class="cart__minus">-</button>
+                    <input class="cart__number" type="text">
+                    <button class="cart__plus">+</button>
+                  </div>
+                </form>
+              </div>
+              <div class="cart__price">2290 руб</div>
+              <div class="cart__close"><a href="#">x</a></div>
+            </div>
+          </div>
+          <div class="cart__item">
+            <div class="cart__block-row">
+              <div class="cart__image-title">
+                <img src="img/cart/893f5059b655a330fbbe3029c1645344.jpg" alt="">
+                <div class="cart__product-title">Какой-то ебанный вейп</div>
+              </div>
+              <div class="cart__form">
+                <form action="#">
+                  <div class="cart__form-block">
+                    <button class="cart__minus">-</button>
+                    <input class="cart__number" type="text">
+                    <button class="cart__plus">+</button>
+                  </div>
+                </form>
+              </div>
+              <div class="cart__price">2290 руб</div>
+              <div class="cart__close"><a href="#">x</a></div>
+            </div>
+          </div>
+          <div class="cart__item">
+            <div class="cart__block-row">
+              <div class="cart__image-title">
+                <img src="img/cart/893f5059b655a330fbbe3029c1645344.jpg" alt="">
+                <div class="cart__product-title">Какой-то ебанный вейп</div>
+              </div>
+              <div class="cart__form">
+                <form action="#">
+                  <div class="cart__form-block">
+                    <button class="cart__minus">-</button>
+                    <input class="cart__number" type="text">
+                    <button class="cart__plus">+</button>
+                  </div>
+                </form>
+              </div>
+              <div class="cart__price">2290 руб</div>
+              <div class="cart__close"><a href="#">x</a></div>
+            </div>
+          </div>
+        </div>
+        <div class="cart__block-2">
+          <div class="cart__block-2-title">Состав заказа</div>
+          <div class="cart-block-2__price">
+            <p>Итого: </p>
+            <p>6890 руб</p>
+          </div>
+          <div class="cart__block-2-buy">
+            <a href="#">Перейти к оформлению</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}
