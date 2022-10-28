@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block title %}{{ title }}{% endblock %}
+
+{% block content %}
+  <div class="error">
+    <div class="container">
+      <div class="all-news__main-title">Ошибка 404</div>
+      <div class="error__wrapper">
+        <div class="erorr__row">
+          <div class="error__img">
+            <img src="{% static 'img/404.PNG' %}" alt="">
+          </div>
+          <div class="error__block">
+            <h2>404</h2>
+            <h3>Что-то пошло не так</h3>
+            <p>Возможно произошла ошибка, рекомендуем Вам перейти по ссылке ниже </p>
+            <a href="{% url 'home_page' %}">Перейти на главную</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}

@@ -189,6 +189,38 @@ class StockAdmin(admin.ModelAdmin):
     get_photo.short_description = 'Минимтюра'
 
 
+class About_companyAdminForm(forms.ModelForm):
+    text = forms.CharField(widget=CKEditorUploadingWidget())
+    class Meta:
+        model = About_company
+        fields = '__all__'
+
+class About_companyAdmin(admin.ModelAdmin):
+    form = About_companyAdminForm
+    list_display = ('text',)
+
+
+class Privacy_policyAadminForm(forms.ModelForm):
+    text = forms.CharField(widget=CKEditorUploadingWidget())
+    class Meta:
+        model = Privacy_policy
+        fields = '__all__'
+
+class Privacy_policyAdmin(admin.ModelAdmin):
+    form = Privacy_policyAadminForm
+    list_display = ('text',)
+
+
+
+class Age_limitAdminForm(forms.ModelForm):
+    text = forms.CharField(widget=CKEditorUploadingWidget())
+    class Meta:
+        model = Age_limit
+        fields = '__all__'
+
+class Age_limitAdmin(admin.ModelAdmin):
+    form = Age_limitAdminForm
+    list_display = ('text',)
 
 
 admin.site.register(Product, ProductAdmin)
@@ -209,3 +241,6 @@ admin.site.register(Guarantees, GuaranteesAdmin)
 admin.site.register(MainPage, MainPageAdmin)
 admin.site.register(Help, HelpAdmin)
 admin.site.register(Stock, StockAdmin)
+admin.site.register(About_company, About_companyAdmin)
+admin.site.register(Privacy_policy, Privacy_policyAdmin)
+admin.site.register(Age_limit, Age_limitAdmin)

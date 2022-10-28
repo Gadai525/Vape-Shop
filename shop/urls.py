@@ -22,4 +22,7 @@ urlpatterns = [
     path('help/', help, name='help'),
     path('all-stock/', stock, name='stock'),
     path('stock/<str:slug_stock>/', get_stock, name='get_stock'),
+    path('about-company/', about_company, name='about_company'),
+    path('privacy-policy/', privacy_policy, name='privacy_policy'),
+    path('age-limit/', age_limit, name='age_limit'),
 ]

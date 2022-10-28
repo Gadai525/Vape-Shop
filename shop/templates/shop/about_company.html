@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block title %}{{ title }}{% endblock %}
+
+{% block content %}
+  <div class="news_block">
+    <div class="container">
+      <div class="news_block__row">
+        <a href="#">Вейп-шоп "Смокинг"</a>
+        <p>/</p>
+        <p>О компании</p>
+      </div>
+      {% autoescape off %}
+        <div class="news_block__content">
+           {{ about_company.text }}
+        </div>
+      {% endautoescape %}
+    </div>
+  </div>
+{% endblock %}

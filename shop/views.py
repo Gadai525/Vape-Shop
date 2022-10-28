@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from django.shortcuts import get_object_or_404
 
 
 from shop.models import *
@@ -64,19 +65,26 @@ def all_news(requests):
 #-----------------------------------------------------------------------------------------
 
 def get_new(requests, slug):
-    new = News.objects.get(slug=slug)
-    context = {
-        'new': new,
-        'title': News.objects.get(slug=slug),
-    }
-    return render(requests, template_name='shop/get_new.html', context=context)
+    #new = News.objects.get(slug=slug)
+    try:
+        new = get_object_or_404(News, slug=slug)
+        context = {
+            'new': new,
+            'title': 'News.objects.get(slug=slug)',
+        }
+        return render(requests, template_name='shop/get_new.html', context=context)
+    except:
+        return render(requests, template_name='shop/404.html')
+
+
 
 #-----------------------------------------------------------------------------------------
 
 def get_category(requests, slug_category):
+
     product = Product.objects.filter(subcategory__category__slug=slug_category)
     category = Category.objects.all()
-    #image = Gallary.objects.filter(product__subcategory__category__slug=slug)[0]
+
 
 
     context = {
@@ -106,6 +114,7 @@ def get_product(requests, slug_product, slug_category, slug_subcategory):
     }
     return render(requests, template_name='shop/get_product.html', context=context)
 
+#-----------------------------------------------------------------------------------------
 
 def get_brend(requests, slug_brend):
     category_brend = Brends.objects.all()
@@ -117,6 +126,7 @@ def get_brend(requests, slug_brend):
     }
     return render(requests, template_name='shop/get_brend.html', context=context)
 
+#-----------------------------------------------------------------------------------------
 
 def bonuses_gifts(requests):
     bonuses_gifts = Bonuses_gifts.objects.first()
@@ -126,6 +136,8 @@ def bonuses_gifts(requests):
         'title': 'Бонусы и подарки',
     }
     return render(requests, template_name='shop/bonuses_gifts.html', context=context)
+
+#-----------------------------------------------------------------------------------------
 
 def delivery(requests):
     delivery = Delivery.objects.first()
@@ -137,6 +149,8 @@ def delivery(requests):
 
     return render(requests, template_name='shop/delivery.html', context=context)
 
+#-----------------------------------------------------------------------------------------
+
 def payment(requests):
     payment = Payment.objects.first()
 
@@ -146,6 +160,8 @@ def payment(requests):
     }
 
     return render(requests, template_name='shop/payment.html', context=context)
+
+#-----------------------------------------------------------------------------------------
 
 def how_to_order(requests):
     how_to_order = How_to_order.objects.first()
@@ -157,6 +173,8 @@ def how_to_order(requests):
 
     return render(requests, template_name='shop/how_to_order.html', context=context)
 
+#-----------------------------------------------------------------------------------------
+
 def guarantees(requests):
     guarantees = Guarantees.objects.first()
 
@@ -166,6 +184,8 @@ def guarantees(requests):
     }
 
     return render(requests, template_name='shop/guarantees.html', context=context)
+
+#-----------------------------------------------------------------------------------------
 
 def help(requests):
     help = Help.objects.all()
@@ -177,6 +197,8 @@ def help(requests):
 
     return render(requests, template_name='shop/help.html', context=context)
 
+#-----------------------------------------------------------------------------------------
+
 def stock(requests):
     stock = Stock.objects.all()
 
@@ -187,6 +209,8 @@ def stock(requests):
 
     return render(requests, template_name='shop/stock.html', context=context)
 
+#-----------------------------------------------------------------------------------------
+
 def get_stock(requests, slug_stock):
     stock = Stock.objects.filter(slug=slug_stock)
 
@@ -196,3 +220,39 @@ def get_stock(requests, slug_stock):
     }
 
     return render(requests, template_name='shop/get_stock.html', context=context)
+
+#-----------------------------------------------------------------------------------------
+
+def about_company(requests):
+    about_company = About_company.objects.first()
+
+    context = {
+        'title': 'sdfsdfsd',
+        'about_company': about_company,
+    }
+
+    return render(requests, template_name='shop/about_company.html', context=context)
+
+#-----------------------------------------------------------------------------------------
+
+def privacy_policy(requests):
+    privacy_policy = Privacy_policy.objects.first()
+
+    context = {
+        'title': 'sdfsdfsd',
+        'privacy_policy': privacy_policy,
+    }
+
+    return render(requests, template_name='shop/privacy_policy.html', context=context)
+
+#-----------------------------------------------------------------------------------------
+
+def age_limit(requests):
+    age_limit = Age_limit.objects.first()
+
+    context = {
+        'title': 'sdfsdfsd',
+        'age_limit': age_limit,
+    }
+
+    return render(requests, template_name='shop/age_limit.html', context=context)

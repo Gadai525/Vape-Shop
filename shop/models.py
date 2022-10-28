@@ -188,21 +188,6 @@ class Volume(models.Model):
 
 #-----------------------------------------------------------------------------------------
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 class Bonuses_gifts(models.Model):
     text = models.TextField(verbose_name='Бонусы и подарки')
 
@@ -212,6 +197,8 @@ class Bonuses_gifts(models.Model):
     class Meta:
         verbose_name_plural='Бонус и подарок'
         verbose_name = 'Бонусы и подарки'
+
+#-----------------------------------------------------------------------------------------
 
 class Delivery(models.Model):
     text = models.TextField(verbose_name='Доставка')
@@ -223,6 +210,8 @@ class Delivery(models.Model):
         verbose_name_plural='Доставка'
         verbose_name = 'Доставки'
 
+#-----------------------------------------------------------------------------------------
+
 class Payment(models.Model):
     text = models.TextField(verbose_name='Оплата')
 
@@ -232,6 +221,8 @@ class Payment(models.Model):
     class Meta:
         verbose_name_plural='Оплата'
         verbose_name = 'Оплата'
+
+#-----------------------------------------------------------------------------------------
 
 class How_to_order(models.Model):
     text = models.TextField(verbose_name='Как заказать')
@@ -243,6 +234,8 @@ class How_to_order(models.Model):
         verbose_name_plural='Как заказать'
         verbose_name = 'Как заказать'
 
+#-----------------------------------------------------------------------------------------
+
 class Guarantees(models.Model):
     text = models.TextField(verbose_name='Гарантии')
 
@@ -252,6 +245,8 @@ class Guarantees(models.Model):
     class Meta:
         verbose_name_plural='Гарантия'
         verbose_name = 'Гарантии'
+
+#-----------------------------------------------------------------------------------------
 
 class Help(models.Model):
     title = models.CharField(max_length=250, verbose_name='Вопрос')
@@ -277,6 +272,8 @@ class Help(models.Model):
 #        verbose_name_plural='Контакт'
 #        verbose_name = 'Контакты'
 
+#-----------------------------------------------------------------------------------------
+
 class MainPage(models.Model):
     text = models.TextField(verbose_name='Описание на главное странице')
 
@@ -287,6 +284,7 @@ class MainPage(models.Model):
         verbose_name_plural='Описание на главное странице'
         verbose_name = 'Описание на главное странице'
 
+#-----------------------------------------------------------------------------------------
 
 class Stock(models.Model):
     title = models.CharField(max_length=250, verbose_name='Название')
@@ -306,6 +304,31 @@ class Stock(models.Model):
         verbose_name='Акции'
 
 #-----------------------------------------------------------------------------------------
+
+class About_company(models.Model):
+    text = models.TextField(verbose_name='О компании')
+
+    class Meta:
+        verbose_name_plural='О компании'
+        verbose_name='О компании'
+
+#-----------------------------------------------------------------------------------------
+
+class Privacy_policy(models.Model):
+    text = models.TextField(verbose_name='О компании')
+
+    class Meta:
+        verbose_name_plural='Политика конфиденциальности'
+        verbose_name='Политика конфиденциальности'
+
+#-----------------------------------------------------------------------------------------
+
+class Age_limit(models.Model):
+    text = models.TextField(verbose_name='О компании')
+
+    class Meta:
+        verbose_name_plural='Возрастное ограничение'
+        verbose_name='Возрастное ограничение'
 #-----------------------------------------------------------------------------------------
 #-----------------------------------------------------------------------------------------
 #-----------------------------------------------------------------------------------------
