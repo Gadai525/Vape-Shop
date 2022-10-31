@@ -259,18 +259,25 @@ class Help(models.Model):
         verbose_name_plural='Вопрос'
         verbose_name = 'Вопросы'
 
-#class Contact(models.Model):
-#    text = models.TextField(verbose_name='Контакты')
+#-----------------------------------------------------------------------------------------
 
-#    time = models.CharField(max_length=250, verbose_name='Режим работы')
-#    phone = models.CharField(max_length=100, verbose_name='Номер')
+class Contact(models.Model):
+    text = models.TextField(verbose_name='Контакты', blank=True,)
 
-#    def __str__(self):
-#        return self.text
+    time = models.CharField(max_length=250, blank=True, verbose_name='Режим работы')
+    phone = models.CharField(max_length=100, blank=True, verbose_name='Номер')
+    mail = models.CharField(max_length=250, blank=True, verbose_name='Почта')
 
-#    class Meta:
-#        verbose_name_plural='Контакт'
-#        verbose_name = 'Контакты'
+    vk = models.URLField(max_length=250, blank=True, verbose_name='Ссылка на VK')
+    telegram = models.URLField(max_length=250, blank=True, verbose_name='Ссылка на Telegram')
+    whatsapp = models.URLField(max_length=250, blank=True, verbose_name='Ссылка на WhatsApp')
+
+    def __str__(self):
+        return self.text
+
+    class Meta:
+        verbose_name_plural='Контакт и режим работы'
+        verbose_name = 'Контакты и режимы работы'
 
 #-----------------------------------------------------------------------------------------
 

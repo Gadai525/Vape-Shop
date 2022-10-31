@@ -222,6 +222,10 @@ class Age_limitAdmin(admin.ModelAdmin):
     form = Age_limitAdminForm
     list_display = ('text',)
 
+class ContactAdmin(admin.ModelAdmin):
+    list_display = ('text', 'time', 'phone', 'mail', 'vk', 'telegram', 'whatsapp')
+
+
 
 admin.site.register(Product, ProductAdmin)
 admin.site.register(Category, CategoryAdmin)
@@ -244,3 +248,4 @@ admin.site.register(Stock, StockAdmin)
 admin.site.register(About_company, About_companyAdmin)
 admin.site.register(Privacy_policy, Privacy_policyAdmin)
 admin.site.register(Age_limit, Age_limitAdmin)
+admin.site.register(Contact, ContactAdmin)

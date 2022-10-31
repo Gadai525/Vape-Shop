@@ -14,54 +14,7 @@
 </head>
 <body>
 	<div class="wrapper">
-		<div class="header">
-			<div class="container">
-				<div class="header__row">
-					<div class="header__smoking-logo">
-						<a href="{% url 'home_page' %}"><img src="{% static 'img/Smokig.PNG' %}" alt=""></a>
-					</div>
-					<div class="header__grid">
-						<ul class="header__list">
-							<li><a href="">Отзывы</a></li>
-							<li><a href="{% url 'bonuses_gifts' %}">Бонусы и Подарки</a></li>
-							<li><a href="{% url 'stock' %}">Акции</a></li>
-							<li><a href="{% url 'delivery' %}">Доставка</a></li>
-							<li><a href="{% url 'payment' %}">Оплата</a></li>
-							<li>
-								<a href="">Еще</a>
-								<div class="header__arrow"></div>
-								<ul class="header__sub-list">
-									<li><a href="{% url 'how_to_order' %}">Как заказать</a></li>
-									<li><a href="{% url 'guarantees' %}">Гарантии</a></li>
-									<li><a href="{% url 'help' %}">Помощь</a></li>
-									<li><a href="">Контакты</a></li>
-									<li><a href="{% url 'all_news' %}">Статьи</a></li>
-								</ul>
-							</li>
-						</ul>
-					</div>
-					<div class="header__social-network">
-						<div class="header__social-network-link">
-							<a href=""><img src="{% static 'img/Social networks/vk.png' %}" alt=""></a>
-						</div>
-						<div class="header__social-network-link">
-							<a href=""><img src="{% static 'img/Social networks/telegram.png' %}" alt=""></a>
-						</div>
-						<div class="header__social-network-link">
-							<a href=""><img src="{% static 'img/Social networks/whatsapp.png' %}" alt=""></a>
-						</div>
-					</div>
-					<div class="header__consultation">
-						<p><span>Консультация</span></p>
-						<p>Пн-Пт с 09:00 - 20:00</p>
-					</div>
-					<div class="header__call">
-						<p><a href="">8 (800) 555 35 35</a></p>
-						<p>Звонок по РФ бесплатный</p>
-					</div>
-				</div>
-			</div>
-		</div>
+		{% include 'inc/_header.html' %}
 		<div class="nav">
 			<div class="container">
 				<div class="nav__row">

@@ -1,11 +1,14 @@
+{% load shop_tags %}
+
 <div class="footer">
   <div class="container">
     <div class="footer__row">
       <div class="footer__item">
         <p class="footer__title">Каталог</p>
         <ul class="footer__list">
-          {% for item in all_category %}
-            <li><a href="#">{{ item.title }}</a></li>
+          {% get_category as category %}
+          {% for item in category %}
+            <li><a href="{{ item.get_absolute_url }}">{{ item.title }}</a></li>
           {% endfor %}
 
         </ul>
@@ -33,17 +36,20 @@
       <div class="footer__item">
         <p class="footer__title">Наши контакты</p>
         <ul class="footer__list">
-          <li>8 (800) 555 35 33</li>
-          <li>Почта: admin@localhost</li>
+          {% get_contact as contact %}
+          {% for item in contact %}
+            <li>{{ item.phone }}</li>
+            <li>Почта: {{ item.mail }} </li>
+          {% endfor %}
         </ul>
       </div>
       <div class="footer__item">
         <p class="footer__title">Онлайн консультакия</p>
         <ul class="footer__list">
-          <li>Пн. - Пт.: с 09:00 до 20:00</li>
-          <li>Почта: admin@localhost</li>
-          <a class="footer__link" href="#">Вконтакте</a>
-          <a class="footer__link" href="#">Telegram</a>
+          {% for item in contact %}
+            <li>{{ item.time }}</li>
+            <a class="footer__link" href="{{ item.telegram }}">Telegram</a>
+          {% endfor %}
         </ul>
       </div>
     </div>

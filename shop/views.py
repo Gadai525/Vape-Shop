@@ -25,6 +25,8 @@ def index(requests):
 
     mainpage = MainPage.objects.all()
 
+    contact = Contact.objects.all()
+
     context = {
         'all_category': all_category,
         'all_news': all_news,
@@ -39,6 +41,7 @@ def index(requests):
         'novelties_product': novelties_product,
         'title': 'Смокинг-вейпшоп',
         'mainpage': mainpage,
+        'contact': contact,
     }
     return render(requests, template_name='shop/index.html', context=context)
 

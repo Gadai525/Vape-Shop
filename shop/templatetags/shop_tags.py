@@ -5,6 +5,10 @@ from shop.models import *
 
 register = template.Library()
 
-@register.simple_tag(name='get_list_categories')
-def get_categories():
+@register.simple_tag()
+def get_contact():
+    return Contact.objects.all()
+
+@register.simple_tag()
+def get_category():
     return Category.objects.all()
