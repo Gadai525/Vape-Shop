@@ -22,10 +22,10 @@
 						<a href="{% url 'catalog' %}"><img src="{% static 'img/Nav-Menu/burger.PNG' %}" alt=""><p>Каталог товаров</p></a>
 					</div>
 					<div class="nav__search">
-						<form class="nav__form">
-							<input class="nav_line-search" type="text" placeholder="Искать товар">
+						<form action="{% url 'search' %}" class="nav__form">
+							<input class="nav_line-search" type="text" placeholder="Искать товар" name="search">
+							<button type="submit" class="nav_line-button">Искать</button>
 
-							<button class="nav_line-button">Искать</button>
 						</form>
 					</div>
 					<div class="nav__nav">

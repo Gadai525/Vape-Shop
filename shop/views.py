@@ -1,9 +1,22 @@
 from django.shortcuts import render
 from django.shortcuts import get_object_or_404
+from django.contrib.auth.forms import UserCreationForm
 
 
 from shop.models import *
 
+
+#-----------------------------------------------------------------------------------------
+
+def search(requests):
+    search_query = requests.GET.get('search')
+    context = {
+        'title': 'asdasd',
+        'search_query': search_query,
+    }
+    if search_query:
+        product = Product.objects.filter(title__icontains=search_query)
+    return render(requests, template_name='shop/search.html', context=context)
 
 #-----------------------------------------------------------------------------------------
 
