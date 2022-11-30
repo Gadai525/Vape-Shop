@@ -9,7 +9,7 @@ from shop.models import *
 #-----------------------------------------------------------------------------------------
 
 def search(requests):
-    search_query = requests.GET.get('search')
+    search_query = requests.GET.get('search', '')
     context = {
         'title': 'asdasd',
         'search_query': search_query,
